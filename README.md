@@ -16,4 +16,5 @@ The problem at hand that is being tackled is that many people and children are a
 
 The target audience for our game is for children and adults 4 and up, but the primary audience that will use the game will be mainly older adolescents and young adults. 
 
-If at any point the work seems to be far too little, more sub-programs or functionalities can be added to the game in order to make the work-load sufficient/reasonable. Conversely, if the work is too much, we can decide to drop some unneeded features from the project to reduce the workload.
+Yes, the current amount of work seems to be enough for a group of five people, however if at any point the work seems to be far too little, more sub-programs or functionalities can be added to the game in order to make the work-load sufficient/reasonable. Conversely, if the work is too much, we can decide to drop some unneeded features from the project to reduce the workload.
+
