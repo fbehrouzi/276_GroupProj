@@ -12,14 +12,14 @@ header {
   margin-left: 70px;
   margin-right: 70px;
   background-color: white;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 200px;
 }
 
 h1 {
   text-align: center;
   color: #FFFFFF;
-  font-size: 70px;
+  font-size: 50px;
   text-indent: 40px;
   margin-bottom: -50px;
   font-family: Verdana;
@@ -28,9 +28,9 @@ h1 {
 }
 
 #h1green {
-  font-size: 100px;
+  font-size: 70px;
   font-weight: normal;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   text-shadow: -3px 0 green, 0 3px green, 3px 0 green, 0 -3px green;
 }
 
@@ -42,50 +42,72 @@ label {
 
 .logintext {
   color: black;
-  font-size: 40px;
-  margin-left: -100px;
+  font-size: 25px;
+  margin-left: 10px;
 }
 
 .tboxes {
-  font-size: 35px;
+  background-color: #f3f3f3;
+  font-size: 20px;
   color: black;
-  padding: 4px 10px;
-  margin-left: -100px;
-  margin-bottom: 30px;
+  padding: 6px 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
   box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid black;
+  outline: none;
 }
 
 .tboxes:hover {
-  border: 3px solid lime;
-  border-radius: 3px;
+  border: 1px solid lime;
+  border-radius: 6px;
 }
 
 .tboxes:focus, input:focus{
-  outline: none;
-  border: 3px solid lime;
-  border-radius: 3px;
+
+  border: 1px solid lime;
+  border-radius: 4px;
+}
+
+.regButton {
+  background-color: #ccc;
+  color: black;
+  margin-left: 10px;
+  padding: 8px 20px 8px 20px;
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid green;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  outline:none
+}
+
+.regButton:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .submitButton {
   background-color: #ccc;
   color: black;
-  padding: 10px 70px 10px 70px;
-  font-size: 50px;
-  margin: 10px 0px 30px -100px;
+  margin-left: 15px;
+  font-size: 19px;
+  padding: 8px 25px 8px 25px;
   font-weight: bold;
   cursor: pointer;
-  border: 5px solid green;
+  border: 2px solid green;
   border-radius: 8px;
   -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
   outline:none
-
 }
 
 .submitButton:hover {
   background-color: #f1f1f1;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
 }
 
 #site-footer {
