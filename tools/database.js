@@ -4,9 +4,16 @@
 
 // Database
 const { Pool } = require('pg')
+// var pool = new Pool({
+// 	connectionString: process.env.DATABASE_URL
+// })
 var pool = new Pool({
-	connectionString: process.env.DATABASE_URL
-})
+	user: 'postgres', 
+	host: 'localhost', 
+	database: 'farmagatchi', 
+	password: 'root', 
+	port: 5432
+});
 
 // Export variable 'pool'
 module.exports = {

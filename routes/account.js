@@ -15,7 +15,7 @@ var pool = require('../tools/database').pool		// defined in "../tools/database.j
 // Path: "/"
 // Method: GET
 // Desc: login page
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
 	res.render('pages/login')	// Login page
 })
 
@@ -31,7 +31,10 @@ app.post('/register', (req, res) => {
 	if (!body || 
 		!(body.username) || body.username.length === 0 ||
 		!(body.password) || body.password.length === 0) {
-		res.status(400).send("400 Error: Invalid inputs")
+		res.status(400).render('pages/message', {
+			'title': 'Error', 
+			'msg': 'Invalid inputs'
+		})
 		return;
 	}
 
@@ -39,12 +42,18 @@ app.post('/register', (req, res) => {
 	// used by other user
 	pool.query(query_cmd, [body.username] , (err, results) => {
 		if (err) {
-			res.status(500).send("500 Error: Database error")
+			res.status(500).render('pages/message', {
+				'title': 'Error', 
+				'msg': 'Database error'
+			})
 			return;
 		}
 
-		if (results.rowCount === 1) {	// Username already exist
-			res.status(200).send("Error: Username already exist")
+		if (results.rowCount === 1) {	// Username already exists
+			res.status(200).render('pages/message', {
+				'title': 'Sorry~', 
+				'msg': 'Someone already has that username.'
+			})
 			return;
 		} else {	// Add the new user to the database
 			let insert_cmd = `INSERT INTO user_account (username, password, salt) VALUES ($1, $2, $3)`
@@ -64,9 +73,15 @@ app.post('/register', (req, res) => {
 			// Insert a new entry to database
 			pool.query(insert_cmd, [body.username, pwd, salt], (err, results) => {
 				if (err) {
-					res.status(500).send("500 Error: Database Error")
+					res.status(500).render('pages/message', {
+						'title': 'Error', 
+						'msg': 'Database error'
+					})
 				} else {
-					res.status(200).send("200 OK: Success!")
+					res.status(200).render('pages/message', {
+						'title': 'Success', 
+						'msg': ''
+					})
 				}
 			})
 		}
@@ -85,14 +100,20 @@ app.post('/login', (req, res) => {
 	if (!body || 
 		!(body.username) || body.username.length === 0 ||
 		!(body.password) || body.password.length === 0) {
-		res.status(400).send("400 Error: Invalid inputs")
+		res.status(400).render('pages/message', {
+			'title': 'Error', 
+			'msg': 'Invalid inputs'
+		})
 		return;
 	}
 
 	// Search the user in the database
 	pool.query(query_cmd, [body.username] , (err, results) => {
 		if (err) {
-			res.status(500).send("500 Error: Database error")
+			res.status(500).render('pages/message', {
+				'title': 'Error', 
+				'msg': 'Database error'
+			})
 			return;
 		}
 
@@ -119,12 +140,21 @@ app.post('/login', (req, res) => {
 			let db_pwd = row.password
 
 			if (user_pwd === db_pwd) {	// Username & password matched
-				res.status(200).send("200 OK: Successfully logged in")
+				res.status(200).render('pages/message', {
+					'title': 'Success', 
+					'msg': `Hi ${body.username}, welcome back!`
+				})
 			} else {
-				res.status(200).send("Error: Username or password not correct")
+				res.status(200).render('pages/message', {
+					'title': 'Oops~', 
+					'msg': 'Incorrect username or password'
+				})
 			}
 		} else {	// Username does not exist
-			res.status(200).send("Error: Username or password not correct")
+			res.status(200).render('pages/message', {
+				'title': 'Oops~', 
+				'msg': 'Incorrect username or password'
+			})
 		}
 	})
 })
