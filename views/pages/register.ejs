@@ -10,34 +10,28 @@
 
         <body style="margin: 0;">
 
-<header id="site-header">
-</header>
+          <header id="site-header">
+          </header>
 
         <header id="mainheader">
-                <h1 id="welcome">Welcome to</h1>
-                <h1 id="h1green">★Farmagatchi!★</h1>
+                <h1>Register</h1>
 
           <div id="logindiv">
+
+            <!-- change the form below to add data to server-->
             <form action="/login" method="post">
+
               <label class="logintext">Username</label><br>
                   <input type="text" name="username" class="tboxes"><br><br>
                 <label class="logintext">Password</label><br>
                   <input type="password" id="tmName" name="password" class="tboxes"><br><br>
 
-                <!-- <button name="submit" class="regButton" type="button">Register</button> -->
+                <button type="submit" class="finishReg">Finish</button>
 
-                <button name="submit" type="button" class="regButton" onclick="
-                window.location.href='/register'">Register</button>
-
-                <button name="submit" type="submit" class="loginButton">Login</button>
             </form>
           </div>
 
             </header>
-
-
-
-
 
           <footer id="site-footer">
           </footer>

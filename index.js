@@ -15,6 +15,10 @@ app.use(express.urlencoded({ extended: false }))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
+// added these so I can test the html, feel free to remove
+app.get('/loginfail', (req, res) => res.render('pages/loginfail'))
+app.get('/register', (req, res) => res.render('pages/register'))
+app.get('/main', (req, res) => res.render('pages/main'))
 
 app.use('/', account)	// find details in ./routes/account.js
 
