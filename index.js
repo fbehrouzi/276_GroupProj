@@ -24,7 +24,19 @@ app.use('/', account)	// Process requests related to user account
 
 /* Operations that require login should be processed after this line */
 
-app.get('/main', (req, res) => { res.render('pages/main') })
+app.get('/main', (req, res) => {
+	res.render('pages/main', {
+		'username': req.cookies['username']
+	})
+})
 
+
+// 404 page
+app.use((req, res) => {
+	res.status(404).render('pages/message', {
+		'title': "Not found", 
+		'msg': "Oops! Page not found"
+	})
+})
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
