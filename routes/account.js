@@ -12,11 +12,18 @@ var app = express()
 
 var pool = require('../tools/database').pool		// defined in "../tools/database.js"
 
-// Path: "/"
+// Path: "/login"
 // Method: GET
 // Desc: login page
 app.get('/login', (req, res) => {
 	res.render('pages/login')	// Login page
+})
+
+// Path: "/register"
+// Method: GET
+// Desc: register page
+app.get('/register', (req, res) => {
+	res.render('pages/register')	// Register page
 })
 
 // Path: "/register/"
