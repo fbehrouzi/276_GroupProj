@@ -19,7 +19,20 @@ var auth = require('../tools/authentication')		// defined in "../authentication.
 // Method: GET
 // Desc: login page
 app.get('/login', (req, res) => {
-	res.render('pages/login')	// Login page
+	if (req.cookies && req.cookies['auth']) {	// Check for cookie
+		// Verify the Token
+		// If the user already logged in, redirect to main page
+		jwt.verify(req.cookies['auth'], auth.key, (err, decode) => {
+			if (err) {	// Token invalid
+				res.render('pages/login')	// Render login page
+			} else {	// Token valid
+				res.cookie('username', decode.username)
+				res.redirect('/main')	// Render main page
+			}
+		})
+	} else {	// User has not logged in
+		res.render('pages/login')	// Render login page
+	}
 })
 
 // Path: "/login"
@@ -77,6 +90,7 @@ app.post('/login', (req, res) => {
 				// Generate a signed Token
 				let token = auth.generateToken(body.username)
 				// Store the Token in cookie
+				res.cookie('username', body.username)
 				res.cookie('auth', token)
 
 				res.status(200).render('pages/message', {
@@ -102,6 +116,7 @@ app.post('/login', (req, res) => {
 // Method: POST
 // Desc: logout operation
 app.get('/logout', (req, res) => {
+	res.clearCookie('username')
 	res.clearCookie('auth')
 	res.redirect('/login')
 })
@@ -172,6 +187,12 @@ app.post('/register', (req, res) => {
 						'msg': 'Database error'
 					})
 				} else {
+					// Generate a signed Token
+					let token = auth.generateToken(body.username)
+					// Store the Token in cookie
+					res.cookie('username', body.username)
+					res.cookie('auth', token)
+
 					res.status(200).render('pages/message', {
 						'title': 'Success', 
 						'msg': ''
@@ -192,7 +213,8 @@ app.get('/*', (req, res, next) => {
 			if (err) {	// Token invalid
 				res.redirect('/login')	// Redirect to login page
 			} else {	// Token valid
-				next()
+				res.cookie('username', decode.username)
+				next()	// Proceed to next step
 			}
 		})
 	} else {	// Does not have cookie
@@ -210,7 +232,8 @@ app.post('/*', (req, res, next) => {
 			if (err) {	// Token invalid
 				res.redirect('/login')	// Redirect to login page
 			} else {	// Token valid
-				next()
+				res.cookie('username', decode.username)
+				next()	// Proceed to next step
 			}
 		})
 	} else {	// Does not have cookie
