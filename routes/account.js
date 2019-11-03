@@ -49,7 +49,7 @@ app.post('/login', (req, res) => {
 		!(body.password) || body.password.length === 0) {
 		res.status(400).render('pages/message', {
 			'title': 'Error', 
-			'msg': 'Invalid inputs'
+			'msg': 'Invalid request'
 		})
 		return;
 	}
@@ -139,10 +139,12 @@ app.post('/register', (req, res) => {
 	// 'username' and 'password' are required
 	if (!body || 
 		!(body.username) || body.username.length === 0 ||
-		!(body.password) || body.password.length === 0) {
+		!(body.password) || body.password.length === 0 ||
+		!(body.confirmPwd) || body.confirmPwd.length === 0 ||
+		body.password != body.confirmPwd) {
 		res.status(400).render('pages/message', {
 			'title': 'Error', 
-			'msg': 'Invalid inputs'
+			'msg': 'Invalid request'
 		})
 		return;
 	}
