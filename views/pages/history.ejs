@@ -16,25 +16,25 @@
 
           <div id="Questions">
             <form>
-              <p>Who was the first Prime Minister of Canada?</p>
+              <h2>Who was the first Prime Minister of Canada?</h2>
               <input type="radio" name="q1" value="0">Justin Trudeau</input>
               <input type="radio" name="q1" value="1">John A Macdonald</input>
               <input type="radio" name="q1" value="0">Stephen Harper</input>
               <input type="radio" name="q1" value="0">Pierre Elliott Trudeau</input>
 
-              <p>Who was the first President of the United States?</p>
+              <h2>Who was the first President of the United States?</h2>
               <input type="radio" name="q2" value="1">George Washington</input>
               <input type="radio" name="q2" value="0">Abraham Lincoln</input>
               <input type="radio" name="q2" value="0">Benjamin Franklin</input>
               <input type="radio" name="q2" value="0">Thomas Jefferson</input>
 
-              <p>What year was Canada founded?</p>
+              <h2>What year was Canada founded?</h2>
               <input type="radio" name="q3" value="1">1800</input>
               <input type="radio" name="q3" value="0">1767</input>
               <input type="radio" name="q3" value="0">1900</input>
               <input type="radio" name="q3" value="0">1867</input>
 
-              <p>How many countries are there in the world today?</p>
+              <h2>How many countries are there in the world today?</h2>
               <input type="radio" name="q4" value="0">1000</input>
               <input type="radio" name="q4" value="0">500</input>
               <input type="radio" name="q4" value="1">195</input>
@@ -42,7 +42,7 @@
             </form>
             <button type="button" id="submit" value="Submit" onclick="historyCheck(); this.onclick=null;">Submit</button>
           </div>
-          <h1>You scored:</h1>
+          <h1 id="score"></h1>
           <h2 id="res"></h2>
           <h1 id="coinResult"></h1>
           <h1 id="message"></h1>

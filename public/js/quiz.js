@@ -1,4 +1,5 @@
 function mathCheck() {
+  document.getElementById("score").innerHTML = "You Scored:";
   var a = 0;
   var q1 = document.getElementsByName('q1');
   if (q1[1].checked) {
@@ -28,6 +29,7 @@ function mathCheck() {
 }
 
 function geographyCheck() {
+  document.getElementById("score").innerHTML = "You Scored:";
   var a = 0;
   var q1 = document.getElementsByName('q1');
   if (q1[2].checked) {
@@ -57,6 +59,7 @@ function geographyCheck() {
 }
 
 function historyCheck() {
+  document.getElementById("score").innerHTML = "You Scored:";
   var a = 0;
   var q1 = document.getElementsByName('q1');
   if (q1[1].checked) {
@@ -86,6 +89,7 @@ function historyCheck() {
 }
 
 function scienceCheck() {
+  document.getElementById("score").innerHTML = "You Scored:";
   var a = 0;
   var q1 = document.getElementsByName('q1');
   if (q1[1].checked) {
@@ -106,7 +110,7 @@ function scienceCheck() {
   document.getElementById("res").innerHTML = a+"/4";
   document.getElementById("submit").innerHTML = "No more submitting";
   if ( a < 3 ){
-    document.getElementById("message").innerHTML = "Better Luck Next Time";
+    document.getElementById("message").innerHTML = "Better Luck Next Time!";
   }
   else {
     document.getElementById("message").innerHTML = "Great Job!";
