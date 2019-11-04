@@ -24,4 +24,5 @@ function mathCheck() {
   else {
     document.getElementById("message").innerHTML = "Great Job!";
   }
+  document.getElementById("coinResult").innerHTML = "You Earned "+a*5+" Coins &#128176;";
 }
