@@ -1,7 +1,7 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="stylesheets/quiz.css">
-    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/math.js"></script>
     <meta charset="utf-8">
 
   </head>
@@ -14,25 +14,36 @@
                 <h3 id = "date"></h3>
                 <h1 id="h1green">★Math Quiz!★</h1>
 
-          <div id="topics">
+          <div id="Questions">
+            <form class="" name="get" action="/userres" method="get">
+              <p>Whats the square root of 25?</p>
+              <input type="radio" name="q1" value="0">25</input>
+              <input type="radio" name="q1" value="1">5</input>
+              <input type="radio" name="q1" value="0">10</input>
+              <input type="radio" name="q1" value="0">30</input>
 
+              <p>Whats 5 x 5?</p>
+              <input type="radio" name="q2" value="1">25</input>
+              <input type="radio" name="q2" value="0">5</input>
+              <input type="radio" name="q2" value="0">10</input>
+              <input type="radio" name="q2" value="0">30</input>
 
+              <p>Whats the (25 + 3) - 5?</p>
+              <input type="radio" name="q3" value="1">23</input>
+              <input type="radio" name="q3" value="0">20</input>
+              <input type="radio" name="q3" value="0">10</input>
+              <input type="radio" name="q3" value="0">25</input>
+
+              <p>Whats the 1000-2x3?</p>
+              <input type="radio" name="q4" value="0">1000</input>
+              <input type="radio" name="q4" value="0">110</input>
+              <input type="radio" name="q4" value="1">994</input>
+              <input type="radio" name="q4" value="0">993</input>
+              <input type="submit" id="sub" value="Delete" onclick="mathCheck()";>
+            </form>
           </div>
-
+          <p id="res"> result </p>
             </header>
-
-
-
-            <script>
-            function DateFunction(){
-              var curr_date = new Date();
-              document.getElementById("date").innerHTML = curr_date;
-            }
-            </script>
-
-            <script>
-            setInterval(DateFunction, 1000);
-            </script>
           <footer id="site-footer">
           </footer>
 
