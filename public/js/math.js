@@ -16,5 +16,12 @@ function mathCheck() {
   if (q4[2].checked) {
     a++;
   }
-  document.getElementById("res").innerHTML = a;
+  document.getElementById("res").innerHTML = a+"/4";
+  document.getElementById("submit").innerHTML = "No more submitting";
+  if ( a < 3 ){
+    document.getElementById("message").innerHTML = "Better Luck Next Time";
+  }
+  else {
+    document.getElementById("message").innerHTML = "Great Job!";
+  }
 }
