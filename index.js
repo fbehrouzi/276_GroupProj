@@ -3,6 +3,11 @@ const path = require('path')
 var cookieParser = require('cookie-parser')
 const PORT = process.env.PORT || 5000
 
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+
 var app = express()
 
 // Import user defined modules
@@ -27,6 +32,7 @@ app.use('/', account)	// Process requests related to user account
 app.get('/main', (req, res) => {
 	res.render('pages/main', {
 		'username': req.cookies['username']
+    
 	})
 })
 
@@ -34,7 +40,7 @@ app.get('/main', (req, res) => {
 // 404 page
 app.use((req, res) => {
 	res.status(404).render('pages/message', {
-		'title': "Not found", 
+		'title': "Not found",
 		'msg': "Oops! Page not found"
 	})
 })

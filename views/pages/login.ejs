@@ -12,8 +12,8 @@
 
 <header id="site-header">
 </header>
-
         <header id="mainheader">
+                <h3 id = "date"></h3> 
                 <h1 id="welcome">Welcome to</h1>
                 <h1 id="h1green">★Farmagatchi!★</h1>
 
@@ -37,8 +37,16 @@
 
 
 
+            <script>
+            function DateFunction(){
+              var curr_date = new Date();
+              document.getElementById("date").innerHTML = curr_date;
+            }
+            </script>
 
-
+            <script>
+            setInterval(DateFunction, 1000);
+            </script>
           <footer id="site-footer">
           </footer>
 
