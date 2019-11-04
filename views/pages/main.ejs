@@ -11,7 +11,7 @@
         <body style="margin: 0;">
 
           <header id="site-header"></header>
-
+          <h3 id = "date"></h3>
           <header id="mainheader">
             <div class="username">
               <span>Username:</span>
@@ -26,6 +26,14 @@
             </div>
 
           </header>
+
+          <script>
+          function DateFunction(){
+            var curr_date = new Date();
+            document.getElementById("date").innerHTML = curr_date;
+          }
+          setInterval(DateFunction, 1000);
+          </script>
 
           <footer id="site-footer"></footer>
 
