@@ -24,7 +24,6 @@ app.set('view engine', 'ejs')
 
 app.get('/quiz', (req, res) => res.render('pages/quiz'))
 app.get('/math', (req, res) => res.render('pages/math'))
-app.get('/mathres', (req, res) => res.render('pages/mathres'))
 app.get('/history', (req, res) => res.render('pages/history'))
 app.get('/science', (req, res) => res.render('pages/science'))
 app.get('/geography', (req, res) => res.render('pages/geography'))
