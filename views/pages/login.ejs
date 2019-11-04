@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="stylesheets/login.css">
+    <script type="text/javascript" src="js/login.js"></script>
+    <meta charset="utf-8">
+
+  </head>
+
+        <body style="margin: 0;">
+
+<header id="site-header">
+</header>
+        <header id="mainheader">
+                <h3 id = "date"></h3> 
+                <h1 id="welcome">Welcome to</h1>
+                <h1 id="h1green">★Farmagatchi!★</h1>
+
+          <div id="logindiv">
+            <form action="/login" method="post">
+              <label class="logintext">Username</label><br>
+                  <input type="text" name="username" class="tboxes" required><br><br>
+                <label class="logintext">Password</label><br>
+                  <input type="password" id="pwd-box" name="password" class="tboxes" required><br><br>
+
+                <!-- <button name="submit" class="regButton" type="button">Register</button> -->
+
+                <button name="submit" type="button" class="regButton" onclick="
+                window.location.href='/register'">Register</button>
+
+                <button name="submit" type="submit" class="loginButton">Login</button>
+            </form>
+          </div>
+
+            </header>
+
+
+
+            <script>
+            function DateFunction(){
+              var curr_date = new Date();
+              document.getElementById("date").innerHTML = curr_date;
+            }
+            </script>
+
+            <script>
+            setInterval(DateFunction, 1000);
+            </script>
+          <footer id="site-footer">
+          </footer>
+
+        </body>
+      </html>
