@@ -1,0 +1,54 @@
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="stylesheets/quiz.css">
+    <script type="text/javascript" src="js/quiz.js"></script>
+    <meta charset="utf-8">
+
+  </head>
+
+        <body style="margin: 0;">
+
+<header id="site-header">
+</header>
+        <header id="mainheader">
+                <h3 id = "date"></h3>
+                <h1 id="h1green">★Math Quiz!★</h1>
+
+          <div id="Questions">
+            <form>
+              <h2>What's the square root of 25?</h2>
+              <input type="radio" name="q1" value="0">25</input>
+              <input type="radio" name="q1" value="1">5</input>
+              <input type="radio" name="q1" value="0">10</input>
+              <input type="radio" name="q1" value="0">30</input>
+
+              <h2>What's 5 x 5?</h2>
+              <input type="radio" name="q2" value="1">25</input>
+              <input type="radio" name="q2" value="0">5</input>
+              <input type="radio" name="q2" value="0">10</input>
+              <input type="radio" name="q2" value="0">30</input>
+
+              <h2>What's (25 + 3) - 5?</h2>
+              <input type="radio" name="q3" value="1">23</input>
+              <input type="radio" name="q3" value="0">20</input>
+              <input type="radio" name="q3" value="0">10</input>
+              <input type="radio" name="q3" value="0">25</input>
+
+              <h2>What's 1000-2x3?</h2>
+              <input type="radio" name="q4" value="0">1000</input>
+              <input type="radio" name="q4" value="0">110</input>
+              <input type="radio" name="q4" value="1">994</input>
+              <input type="radio" name="q4" value="0">993</input>
+            </form>
+            <button type="button" id="submit" value="Submit" onclick="mathCheck(); this.onclick=null;">Submit</button>
+          </div>
+          <h1 id="score"></h1>
+          <h2 id="res"></h2>
+          <h1 id="coinResult"></h1>
+          <h1 id="message"></h1>
+            </header>
+          <footer id="site-footer">
+          </footer>
+
+        </body>
+      </html>
