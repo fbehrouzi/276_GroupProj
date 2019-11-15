@@ -14,7 +14,6 @@ var app = express()
 var db = require('./tools/database')		// defined in "./tools/database.js"
 var account = require('./routes/account')	// defined in "./routes/account.js"
 
-
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
@@ -38,6 +37,7 @@ app.get('/main', (req, res) => {
 		'username': req.cookies['username']
 	})
 })
+
 
 
 // 404 page
