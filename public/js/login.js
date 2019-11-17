@@ -13,6 +13,4 @@ if (pwd && confirmPwd) {
 		}
 	})
 }
-
 // End of login.js
-
