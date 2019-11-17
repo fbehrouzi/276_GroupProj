@@ -9,10 +9,24 @@ var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(
 var dateTime = date+' '+time;
 
 var app = express()
+var http = require ('http').createServer(app);
+var io = require('socket.io')(http);
 
 // Import user defined modules
 var db = require('./tools/database')		// defined in "./tools/database.js"
 var account = require('./routes/account')	// defined in "./routes/account.js"
+app.get('/chat', (req, res) => res.render('pages/chatroom.ejs'))
+io.on('connection', function(socket){
+  console.log('a user connected');
+	socket.on('disconnect', function(){
+		console.log('user disconnected');
+	});
+});
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
 
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
@@ -50,4 +64,7 @@ app.use((req, res) => {
 	})
 })
 
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+http.listen(5000, function(){
+  console.log('listening on 5000');
+});
+//app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
