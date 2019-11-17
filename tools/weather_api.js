@@ -2,25 +2,39 @@
 // weather_api.js
 // Description: provides functions for weather API
 
+const request = require('request')
 var pool = require('../tools/database').pool		// defined in "../tools/database.js"
 
-var getWeatherAPIKey = () => {
-	return () => {
-		let key = ""
-		let query_cmd = `SELECT * FROM weather_api_key`
-		pool.query(query_cmd, (err, result) => {
-			if (!err) {
-				// console.log(result.rows[0])
-				key = result.rows[0].key
+// let cityID = 6173331	// Vancouver
+let cityID = 5911606	// Burnaby
+
+var getWeatherAPIKey = (callback) => {
+	let key = ""
+	let query_cmd = `SELECT * FROM weather_api_key`
+	pool.query(query_cmd, (err, result) => {
+		if (!err) {
+			key = result.rows[0].key
+		}
+		return callback(key)
+	})
+}
+
+var getWeatherResults = (callback) => {
+	getWeatherAPIKey((key) => {
+		let url = `http://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=${key}`
+		request(url, (err, respond, body) => {
+			if (err) {
+				callback(err, undefined)
+			} else {
+				callback(undefined, body)
 			}
 		})
-		return key
-	}
+	})
 }
 
 module.exports = {
-	getWeatherAPIKey: getWeatherAPIKey
-	// weather_api_key: key
+	getWeatherAPIKey: getWeatherAPIKey, 
+	getWeatherResults: getWeatherResults
 }
 
 // End of weather_api.js
