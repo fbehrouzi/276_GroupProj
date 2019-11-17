@@ -20,6 +20,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
+app.get('/store', (req, res) => res.render('pages/store'))
 
 app.get('/', (req, res) => { res.redirect('/main') })	// Home page
 app.use('/', account)	// Process requests related to user account
