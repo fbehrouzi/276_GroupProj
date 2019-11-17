@@ -93,10 +93,11 @@ app.post('/login', (req, res) => {
 				res.cookie('username', body.username)
 				res.cookie('auth', token)
 
-				res.status(200).render('pages/message', {
-					'title': 'Success', 
-					'msg': `Hi ${body.username}, welcome back!`
-				})
+				res.redirect('/main')
+				// res.status(200).render('pages/message', {
+				// 	'title': 'Success', 
+				// 	'msg': `Hi ${body.username}, welcome back!`
+				// })
 			} else {
 				res.status(200).render('pages/message', {
 					'title': 'Oops~', 
