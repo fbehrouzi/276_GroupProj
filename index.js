@@ -20,13 +20,13 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
-app.get('/store', (req, res) => res.render('pages/store'))
 
 app.get('/', (req, res) => { res.redirect('/main') })	// Home page
 app.use('/', account)	// Process requests related to user account
 						// Find details in "./routes/account.js"
 
 /* Operations that require login should be processed after this line */
+app.get('/store', (req, res) => res.render('pages/store'))
 app.get('/quiz', (req, res) => res.render('pages/quiz'))
 app.get('/math', (req, res) => res.render('pages/math'))
 app.get('/history', (req, res) => res.render('pages/history'))
