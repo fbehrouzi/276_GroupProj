@@ -2,7 +2,7 @@
 // weather_api.js
 // Description: provides functions for weather API
 
-const request = require('request')
+var request = require('request')
 var pool = require('../tools/database').pool		// defined in "../tools/database.js"
 
 // let cityID = 6173331	// Vancouver
