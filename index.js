@@ -62,9 +62,10 @@ app.get('/history', (req, res) => res.render('pages/history'))
 app.get('/science', (req, res) => res.render('pages/science'))
 app.get('/geography', (req, res) => res.render('pages/geography'))
 app.get('/inventory', (req, res) => {
-    var getuseraccount = `SELECT * FROM user_account`;
+    var username = req.cookies['username'];
+    var getuseraccount = `SELECT * FROM user_account`; //for some reason adding this :  where username=${username} //causes it to crash
     console.log(getuseraccount);
-    users_inv_pool.query(getuseraccount, (error, result) => {
+    db.pool.query(getuseraccount, (error, result) => {
       if (error)
         res.end(error);
       var results = {'rows': result.rows };
