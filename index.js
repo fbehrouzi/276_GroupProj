@@ -61,9 +61,17 @@ app.get('/math', (req, res) => res.render('pages/math'))
 app.get('/history', (req, res) => res.render('pages/history'))
 app.get('/science', (req, res) => res.render('pages/science'))
 app.get('/geography', (req, res) => res.render('pages/geography'))
-app.get('/inventory', (req, res) => res.render('pages/inventory'))
-
-
+app.get('/inventory', (req, res) => {
+    var getuseraccount = `SELECT * FROM user_account`;
+    console.log(getuseraccount);
+    users_inv_pool.query(getuseraccount, (error, result) => {
+      if (error)
+        res.end(error);
+      var results = {'rows': result.rows };
+      console.log(results);
+    res.render('pages/inventory')
+    });
+});
 app.use('/', main)
 
 /* [Delete this] Moved to "./routes/main.js" */

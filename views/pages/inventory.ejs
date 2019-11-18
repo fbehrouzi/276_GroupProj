@@ -18,6 +18,40 @@
 
              </header>
 
+
+
+             <h2>Tokimon Table</h2>
+
+             <table>
+               <tr>
+                 <th>Username</th>
+                 <th>Coins</th>
+                 <th>Gems</th>
+                 <th>Seeds</th>
+                 <th>Tomato</th>
+                 <th>Potato</th>
+                 <th>Pumpkin</th>
+                 <th>Corn</th>
+                 <th>Cabbage</th>
+                 <th>Carrot</th>
+                 <th>Watermelon</th>
+               </tr>
+               <tr>
+                 <!-- need to specify action and method for the form. the POST corresponds to POST in index.js and action specifies the path/route (in this case in index.js you implement the functionalities) -->
+                 <!-- the button doesn't know wher eto post the information, so the action is used to  -->
+                 <td><input id = "toke_weight" type="numeric" name="weight" ></td>
+                 <td><input id = "toke_height" type="numeric" name="height" ></td>
+                 <td><input id = "toke_fly" type="numeric" name="fly" ></td>
+                 <td><input id = "toke_fight" type="numeric" name="fight"></td>
+                 <td><input id = "toke_fire" type="numeric" name="fire"></td>
+                 <td><input id = "toke_water" type="numeric" name="water"></td>
+                 <td><input id = "toke_electric" type="numeric" name="electric"></td>
+                 <td><input id = "toke_frozen" type="numeric" name="frozen" ></td>
+                 <td><input id = "toke_total" type="numeric" name="total" ></td>
+                 <td><input id = "toke_trainer_name" type="text" name="trainer_name"></td>
+                 <button type="submit" id="submit" class="button" onclick = "submit_tokemon()">Submit Tokimon</button>
+               </tr>
+
              <script>
              function DateFunction(){
                var curr_date = new Date();
