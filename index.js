@@ -3,8 +3,6 @@ const path = require('path')
 var cookieParser = require('cookie-parser')
 const PORT = process.env.PORT || 5000
 
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -52,6 +50,7 @@ app.use(express.urlencoded({ extended: false }))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
+app.get('/', (req, res) => { res.redirect('/main') })	// Home page
 app.use('/', account)	// Process requests related to user account
 						// Find details in "./routes/account.js"
 
@@ -75,28 +74,6 @@ app.use('/', main)
 // })
 
 
-
-
-
-app.get('/chatroom', (req, res) => {
-	res.render('pages/chatroom', {
-	})
-})
-io.sockets.on('connection', function(socket) {
-    socket.on('username', function(username) {
-        socket.username = username;
-        io.emit('is_online', '🔵 <i>' + socket.username + ' join the chat..</i>');
-    });
-
-    socket.on('disconnect', function(username) {
-        io.emit('is_online', '🔴 <i>' + socket.username + ' left the chat..</i>');
-    })
-
-    socket.on('chat_message', function(message) {
-        io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);
-    });
-
-});
 
 // 404 page
 app.use((req, res) => {
