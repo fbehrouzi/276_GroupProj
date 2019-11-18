@@ -71,7 +71,7 @@ app.use((req, res) => {
 	})
 })
 
-http.listen(5000, function(){
-  console.log('listening on 5000');
-});
-//app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
+// http.listen(5000, function(){
+//   console.log('listening on 5000');
+// });
+http.listen(PORT, () => console.log(`Listening on ${ PORT }`))
