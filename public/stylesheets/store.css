@@ -21,7 +21,8 @@ header {
   margin-left: 70px;
   margin-right: 70px;
   background-color: white;
-  padding-bottom: 100px;
+  padding-top: 20px;
+  padding-bottom: 200px;
 }
 
 h1 {
@@ -47,41 +48,21 @@ h1 {
 
 h2 {
   text-align: center;
-  color: black;
-  font-size: 30px;
-  text-indent: 40px;
-  font-family: Verdana;
-  font-weight: normal;
-}
-
-h3{
-  text-align: left;
-  color: black;
-  font-size: 16px;
-  text-indent: 40px;
-  font-family: Verdana;
-  font-weight: normal;
-}
-
-h4{
-  text-align: left;
-  color: black;
-  font-size: 18px;
+  color: blue;
+  font-size: 35px;
   text-indent: 40px;
   font-family: Verdana;
   font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.imageCenter {
-    text-align: center;
-}
-
-.imageLeft {
-    text-align: left;
-}
-
-.imageRight {
-    text-align: right;
+input {
+  text-align: center;
+  color: blue;
+  text-indent: 40px;
+  font-family: Verdana;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 label {
@@ -200,34 +181,6 @@ label {
   background-color: #f1f1f1;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-
-/* Navigation bar */
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: teal;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 8px 10px;
-  text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
-}
-
-/* Navigation bar end */
 
 #site-footer {
     color: #aaa;
