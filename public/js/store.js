@@ -110,8 +110,13 @@ function buyItems() {
   }
   a = a-cost;
   document.getElementById("total").innerHTML = "Your total was " + cost + " coins";
-  document.getElementById("invMessage").innerHTML = "Your items are now in your inventory";
-  document.getElementById("coinsLeft").innerHTML = "You now have "+ a + " coins left";
+  if (cost > 0){
+    document.getElementById("invMessage").innerHTML = "Your items are now in your inventory";
+    document.getElementById("coinsLeft").innerHTML = "You now have "+ a + " coins left";
+  }
+  else {
+    document.getElementById("invMessage").innerHTML = "No items were bought";
+  }
 
 
 
