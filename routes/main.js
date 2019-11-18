@@ -11,22 +11,36 @@ var weather_api = require('../tools/weather_api')	// defined in "../tools/weathe
 // Method: GET
 // Desc: main page
 app.get('/main', (req, res) => {
-	weather_api.getWeatherResults((err, result) => {
-		renderObj = {
-			'username': req.cookies['username'], 
-			'city': "", 
-			'weather': "", 
-			'temperature': ""
-		}
+	let username = req.cookies['username']
+	let query_cmd = `SELECT * FROM user_account WHERE username=$1`
+	pool.query(query_cmd, [username], (err, result) => {
 		if (err) {
-			res.render('pages/main', renderObj)
-		} else {
-			result = JSON.parse(result)
-			renderObj.city = result.name
-			renderObj.weather = result.weather[0].main
-			renderObj.temperature = (result.main.temp - 273.15).toFixed(2)
-			res.render('pages/main', renderObj)
+			res.status(500).render('pages/message', {
+				'title': 'Error', 
+				'msg': 'Database error'
+			})
+			return;
 		}
+		let user = result.rows[0]
+		let coin = user.coin
+		weather_api.getWeatherResults((err, result) => {
+			renderObj = {
+				'username': req.cookies['username'], 
+				'coin': coin, 
+				'city': "", 
+				'weather': "", 
+				'temperature': ""
+			}
+			if (err) {
+				res.render('pages/main', renderObj)
+			} else {
+				result = JSON.parse(result)
+				renderObj.city = result.name
+				renderObj.weather = result.weather[0].main
+				renderObj.temperature = (result.main.temp - 273.15).toFixed(2)
+				res.render('pages/main', renderObj)
+			}
+		})
 	})
 })
 

@@ -33,11 +33,12 @@ app.post('/checkquiz', (req, res) => {
 				'title': 'Error', 
 				'msg': 'Database error'
 			})
+		} else {
+			res.status(200).render('pages/message', {
+				'title': 'Great Job!', 
+				'msg': `You Earned ${ coins } Coins`
+			})
 		}
-		res.status(200).render('pages/message', {
-			'title': 'Great Job!', 
-			'msg': `You Earned ${ coins } Coins`
-		})
 	})
 })
 
