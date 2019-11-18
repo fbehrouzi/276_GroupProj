@@ -42,6 +42,7 @@ io.on('connection', function(socket){
 });
 
 var main = require('./routes/main')			// defined in "./routes/main.js"
+var quiz = require('./routes/quiz')			// defined in "./routes/quiz.js"
 
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
@@ -55,12 +56,7 @@ app.use('/', account)	// Process requests related to user account
 						// Find details in "./routes/account.js"
 
 /* Operations that require login should be processed after this line */
-app.get('/store', (req, res) => res.render('pages/store'))
-app.get('/quiz', (req, res) => res.render('pages/quiz'))
-app.get('/math', (req, res) => res.render('pages/math'))
-app.get('/history', (req, res) => res.render('pages/history'))
-app.get('/science', (req, res) => res.render('pages/science'))
-app.get('/geography', (req, res) => res.render('pages/geography'))
+
 app.get('/inventory', (req, res) => {
     var username = req.cookies['username'];
     var getuseraccount = `SELECT * FROM user_account`; //for some reason adding this :  where username=${username} //causes it to crash
@@ -73,15 +69,10 @@ app.get('/inventory', (req, res) => {
     res.render('pages/inventory', results)
     });
 });
-app.use('/', main)
 
-/* [Delete this] Moved to "./routes/main.js" */
-// app.get('/main', (req, res) => {
-// 	res.render('pages/main', {
-// 		'username': req.cookies['username']
-// 	})
-// })
 
+app.use('/', main)	// main page
+app.use('/', quiz)	// quiz
 
 
 // 404 page
