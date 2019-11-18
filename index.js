@@ -36,7 +36,9 @@ io.on('connection', function(socket){
 	}});
 
 	socket.on('chat message', function(msg){
-	io.emit('chat message', msg); //get username from data base and put it here before mssg user+msg
+	<% rows.forEach((user_name) => { %>
+	io.emit('chat message', <%= user_name.username %>+msg); //get username from data base and put it here before mssg user+msg
+	<% }); %>
 	});
 });
 
