@@ -69,7 +69,7 @@ app.get('/inventory', (req, res) => {
         res.end(error);
       var results = {'rows': result.rows };
       console.log(results);
-    res.render('pages/inventory')
+    res.render('pages/inventory', results)
     });
 });
 app.use('/', main)
