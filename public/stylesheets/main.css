@@ -238,6 +238,17 @@ li a:hover {
     background-color: green;
 }
 
+.profile-img {
+  width:30px;
+  height:35px;
+  padding-left:10px;
+}
+
+.username-font {
+  margin-left: 10px;
+}
+
 .username {
   margin-left: 15px;
+  padding-bottom: 10px;
 }
