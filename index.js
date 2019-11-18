@@ -55,13 +55,14 @@ app.use('/', account)	// Process requests related to user account
 						// Find details in "./routes/account.js"
 
 /* Operations that require login should be processed after this line */
+app.get('/store', (req, res) => res.render('pages/store.ejs'))
 
 app.get('/inventory', (req, res) => {
 	var username = req.cookies['username']
 	var getuseraccount = `SELECT * FROM user_account WHERE username=$1`
 	// console.log(getuseraccount);
 	pool.query(getuseraccount, [username], (error, result) => {
-		if (error) 
+		if (error)
 			res.end(error);
 		var results = {'rows': result.rows };
 		// console.log(results);
