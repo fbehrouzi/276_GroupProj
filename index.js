@@ -16,16 +16,28 @@ var io = require('socket.io')(http);
 var db = require('./tools/database')		// defined in "./tools/database.js"
 var account = require('./routes/account')	// defined in "./routes/account.js"
 
+var users = 0;
 app.get('/chat', (req, res) => res.render('pages/chatroom.ejs'))
 io.on('connection', function(socket){
-  console.log('a user connected');
+  users++;
+  if(users == 1){
+    io.emit('chat message', users+' user in chatroom');
+  }
+  else {
+    io.emit('chat message', users+' users in chatroom');
+  }
 	socket.on('disconnect', function(){
-		console.log('user disconnected');
+    users--;
+    if(users == 1){
+      io.emit('chat message', users+' user in chatroom');
+    }
+    else {
+      io.emit('chat message', users+' users in chatroom');
+    }
 	});
-});
-io.on('connection', function(socket){
+
   socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+    io.emit('chat message', msg); //get username from data base and put it here before mssg user+msg
   });
 });
 
