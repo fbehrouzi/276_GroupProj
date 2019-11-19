@@ -44,6 +44,10 @@ app.get('/main', (req, res) => {
 	})
 }) // End of GET "/main"
 
+
+// Path: "/checkin"
+// Method: GET
+// Desc: check in to get coins
 app.get('/checkin', (req, res) => {
 	let username = req.cookies['username']
 	let query_cmd = `UPDATE user_account SET coin=coin+$1 WHERE username=$2`
@@ -58,7 +62,7 @@ app.get('/checkin', (req, res) => {
 			res.redirect('/main')
 		}
 	})
-})
+}) // End of GET "/checkin"
 
 module.exports = app	// Export app
 
