@@ -8,10 +8,10 @@ var pool = new Pool({
 	connectionString: process.env.DATABASE_URL
 })
 
+
 // Export variable 'pool'
 module.exports = {
 	pool: pool
 }
 
 // End of database.js
-

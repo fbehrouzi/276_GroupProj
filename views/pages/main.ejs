@@ -10,8 +10,8 @@
 
         <body style="margin: 0;">
 
-          <header id="site-header"></header>
-
+          <!-- <header id="site-header"></header> -->
+          <!-- <h3 id = "date"></h3> -->
           <header id="mainheader">
 
             <ul>
@@ -19,23 +19,25 @@
             <li><a href="/inventory">Inventory</a></li>
             <li><a href="/chat">Chatroom</a></li>
             <li><a href="/quiz">Quiz</a></li>
-            <li><a href="/login">Logout</a></li>
+            <li><a href="/store">Store</a></li>
+            <li><a href="/logout">Logout</a></li>
             </ul><br>
 
           <div class="username">
-            <span style="font-size:16px;font-family: Verdana;">Welcome back </span>
-            <a href="" style="font-size:16px;font-family: Verdana;"><%= username %></a>
-            <div class="imageLeft">
-              <img src="images/profileTEMP.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px">
-            </div>
+            <img src="images/profileTEMP.jpg" alt="profilePic" class="profile-img">
+            <span class="username-font" style="font-size:16px;font-family: Verdana;">Welcome back </span>
+            <a href="/inventory" style="font-size:16px;font-family: Verdana;"><%= username %></a>
+            <span class="username-font">Coins: <%= coin %></span>
           </div>
 
           <button name="submit" type="button" class="regButton" onclick="
           window.location.href='/message'">Pennymaker</button>
 
             <h4>Current Weather: </h4>
-            <h3>Thursday, 13:30 (change these)</h3>
-            <h3>Cloudy (change these)</h3>
+            <!-- <h3>Thursday, 13:30 (change these)</h3> -->
+            <h3>City: <%= city %></h3>
+            <h3>Weather: <%= weather %></h3>
+            <h3>Temperature: <%= temperature %> ℃</h3>
 
             <div class="imageLeft">
               <img src="images/weatherTEMP.jpg" alt="weatherPic" style="width:128px;height:128px;padding-left:30px">
@@ -56,7 +58,6 @@
             </div>
 
             <b>
-
 
           </header>
           <footer id="site-footer"></footer>
