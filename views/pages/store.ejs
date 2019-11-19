@@ -27,15 +27,15 @@
                 <h1 id="h1green">★Store!★</h1>
 
           <div id="topics">
-            <form>
+            <form action="/buy" method="post">
               <h2>Plants</h2>
-              <input type="number" id="s1" min="0" value="0">Corn 5 Coins<img src="images/cornn.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="number" id="s2" value="0">Tomatoes 5 Coins<img src="images/tomatodude.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="number" id="s3" value="0">Pumpkins 5 Coins<img src="images/evilpumpkin.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="number" id="s4" value="0">Potatoes 5 Coins<img src="images/potato.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="number" id="s5" value="0">Cabbage 5 Coins<img src="images/cabby.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="number" id="s6" value="0">Carrots 5 Coins<img src="images/carrosaur.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-
+              <input type="number" id="s1" min="0" value="0" name="corn">Corn 5 Coins<img src="images/cornn.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
+              <input type="number" id="s2" value="0" name="tomato">Tomatoes 5 Coins<img src="images/tomatodude.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
+              <input type="number" id="s3" value="0" name="pumpkin">Pumpkins 5 Coins<img src="images/evilpumpkin.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
+              <input type="number" id="s4" value="0" name="potato">Potatoes 5 Coins<img src="images/potato.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
+              <input type="number" id="s5" value="0" name="cabbage">Cabbage 5 Coins<img src="images/cabby.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
+              <input type="number" id="s6" value="0" name="carrot">Carrots 5 Coins<img src="images/carrosaur.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
+<!-- 
               <h2>Fertilizer</h2>
               <input type="number" id="s7" value="0">Fertilizer 5 Coins</input>
 
@@ -48,9 +48,10 @@
               <h2>Toys</h2>
               <input type="number" id="s12" value="0">Tennis Ball 10 Coins</input>
               <input type="number" id="s13" value="0">Chew Toy 10 Coins</input>
-              <input type="number" id="s14" value="0">Stuffed Animal 10 Coins</input>
+              <input type="number" id="s14" value="0">Stuffed Animal 10 Coins</input> -->
+              <br>
+              <button type="submit" id="submit" value="Submit" onclick="buyItems(); this.onclick=null;">Submit</button>
             </form>
-            <button type="button" id="submit" value="Submit" onclick="buyItems(); this.onclick=null;">Submit</button>
             <h1 id="total">Negative inputs are invalid</h1>
           </div>
           <h2 id="error"></h2>

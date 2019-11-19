@@ -42,6 +42,8 @@ io.on('connection', function(socket){
 
 var main = require('./routes/main')			// defined in "./routes/main.js"
 var quiz = require('./routes/quiz')			// defined in "./routes/quiz.js"
+var store = require('./routes/store')		// defined in "./routes/store.js"
+
 
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
@@ -57,7 +59,6 @@ app.use('/', account)	// Process requests related to user account
 						// Find details in "./routes/account.js"
 
 /* Operations that require login should be processed after this line */
-app.get('/store', (req, res) => res.render('pages/store.ejs'))
 
 app.get('/inventory', (req, res) => {
 	var username = req.cookies['username']
@@ -73,8 +74,9 @@ app.get('/inventory', (req, res) => {
 });
 
 
-app.use('/', main)	// main page
-app.use('/', quiz)	// quiz
+app.use('/', main)			// main page
+app.use('/', quiz)			// quiz
+app.use('/', store)			// store
 
 
 // 404 page
