@@ -207,7 +207,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: teal;
+  background-color: green;
 }
 
 li {
@@ -251,4 +251,10 @@ li a:hover {
 .username {
   margin-left: 15px;
   padding-bottom: 10px;
+}
+
+th, td {
+  padding: 3px;
+  text-align: center;
+  border-bottom: 1px solid black;
 }
