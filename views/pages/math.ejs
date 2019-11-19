@@ -28,30 +28,45 @@
           <div id="Questions">
             <form action="/checkquiz" method="post">
               <h2>What's the square root of 25?</h2>
-              <input type="radio" name="q1" value="0">25</input>
-              <input type="radio" name="q1" value="1">5</input>
-              <input type="radio" name="q1" value="0">10</input>
-              <input type="radio" name="q1" value="0">30</input>
+              <div class="imageCenter">
+                <input type="radio" name="q1" value="0">25</input>
+                <input type="radio" name="q1" value="1">5</input>
+                <input type="radio" name="q1" value="0">10</input>
+                <input type="radio" name="q1" value="0">30</input>
+                              </div>
+
 
               <h2>What's 5 x 5?</h2>
-              <input type="radio" name="q2" value="1">25</input>
-              <input type="radio" name="q2" value="0">5</input>
-              <input type="radio" name="q2" value="0">10</input>
-              <input type="radio" name="q2" value="0">30</input>
+              <div class="imageCenter">
+                <input type="radio" name="q2" value="1">25</input>
+                <input type="radio" name="q2" value="0">5</input>
+                <input type="radio" name="q2" value="0">10</input>
+                <input type="radio" name="q2" value="0">30</input>
+                              </div>
+
 
               <h2>What's (25 + 3) - 5?</h2>
-              <input type="radio" name="q3" value="1">23</input>
-              <input type="radio" name="q3" value="0">20</input>
-              <input type="radio" name="q3" value="0">10</input>
-              <input type="radio" name="q3" value="0">25</input>
+              <div class="imageCenter">
+                <input type="radio" name="q3" value="1">23</input>
+                <input type="radio" name="q3" value="0">20</input>
+                <input type="radio" name="q3" value="0">10</input>
+                <input type="radio" name="q3" value="0">25</input>
+                              </div>
 
               <h2>What's 1000-2x3?</h2>
-              <input type="radio" name="q4" value="0">1000</input>
-              <input type="radio" name="q4" value="0">110</input>
-              <input type="radio" name="q4" value="1">994</input>
-              <input type="radio" name="q4" value="0">993</input>
-              <button type="submit" id="submit" value="Submit" >Submit</button>
-            </form>
+              <div class="imageCenter">
+                <input type="radio" name="q4" value="0">1000</input>
+                <input type="radio" name="q4" value="0">110</input>
+                <input type="radio" name="q4" value="1">994</input>
+                <input type="radio" name="q4" value="0">993</input>
+                              </div>
+
+            </form><br>
+
+            <div class="imageCenter">
+            <button type="button" id="submit" class="regButton" value="Submit" onclick="geographyCheck(); this.onclick=null;">Submit</button>
+                            </div>
+
           </div>
           <h1 id="score"></h1>
           <h2 id="res"></h2>
