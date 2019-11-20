@@ -33,10 +33,17 @@ app.post('/checkquiz', (req, res) => {
 				'msg': 'Database error'
 			})
 		} else {
-			res.status(200).render('pages/message', {
-				'title': 'Great Job!', 
-				'msg': `You Earned ${ coins } Coins`
-			})
+			if (coins === 0) {
+				res.status(200).render('pages/message', {
+					'title': 'Sorry, wrong answer~', 
+					'msg': `Better Luck Next Time`
+				})
+			} else {
+				res.status(200).render('pages/message', {
+					'title': `Great job!`, 
+					'msg': `You correctly answered ${ parseInt(coins / 5) } question(s). Earned ${ coins } Coins`
+				})
+			}
 		}
 	})
 })
