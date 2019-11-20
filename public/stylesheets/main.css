@@ -76,12 +76,18 @@ h4{
     text-align: center;
 }
 
-.imageLeft {
-    text-align: left;
+.divLeft {
+    vertical-align: top;
+    float: left;
+    margin-left: 30px;
+    padding-right: 5px;
 }
 
-.imageRight {
-    text-align: right;
+.divRight {
+    vertical-align: center;
+    float: right;
+    margin-right: 30px;
+    position: relative;
 }
 
 label {
@@ -249,6 +255,7 @@ li a:hover {
 }
 
 .username {
+  float: left;
   margin-left: 15px;
   padding-bottom: 10px;
 }
@@ -267,4 +274,44 @@ th, td {
 .radio-input {
    display: inline-block;
     vertical-align: top;
+}
+
+.Coin{
+  float: right;
+  margin-right: 20px;
+  padding-bottom: 10px;
+}
+
+.background{
+  width:800px;
+  height:600px;
+  position: relative;
+}
+.slot1{
+  width:130px;
+  height:130px;
+  left: 100px;
+  bottom: 210px;
+  position: absolute;
+}
+.slot2{
+  width:130px;
+  height:130px;
+  left: 280px;
+  bottom: 210px;
+  position: absolute;
+}
+.slot3{
+  width:130px;
+  height:130px;
+  left: 460px;
+  bottom: 200px;
+  position: absolute;
+}
+.slot4{
+  width:130px;
+  height:130px;
+  left: 630px;
+  bottom: 200px;
+  position: absolute;
 }

@@ -53,6 +53,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 //app.use('/', quiz)	// testing quiz
+//app.use('/', main)
 
 app.get('/', (req, res) => { res.redirect('/main') })	// Home page
 app.use('/', account)	// Process requests related to user account
