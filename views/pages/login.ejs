@@ -29,7 +29,8 @@
           <div id="logindiv">
             <form action="/login" method="post">
               <label class="logintext">Username</label><br>
-                  <input type="text" name="username" class="tboxes" required><br><br>
+                <input name="redirect" value="<%= redirect %>" hidden>
+                <input type="text" name="username" class="tboxes" required><br><br>
                 <label class="logintext">Password</label><br>
                   <input type="password" id="pwd-box" name="password" class="tboxes" required><br><br>
 

@@ -43,6 +43,18 @@ app.use('/', quiz)		// Process requests related to quiz
 app.use('/', store)		// Process requests related to store
 						// Find details in "./routes/store.js"
 
+app.get('/inventory', (req, res) => {
+	var username = req.cookies['username']
+	var getuseraccount = `SELECT * FROM user_account WHERE username=$1`
+	pool.query(getuseraccount, [username], (error, result) => {
+		if (error)
+			res.end(error)
+		res.render('pages/inventory', {
+			'rows': result.rows
+		})
+	});
+});
+
 var users = 0;
 app.get('/chat', (req, res) => res.render('pages/chatroom.ejs'))
 io.on('connection', function(socket) {
@@ -71,19 +83,6 @@ io.on('connection', function(socket) {
 		})
 		msg = username + ': ' + msg
 		io.emit('chat message', msg)
-	});
-});
-
-app.get('/inventory', (req, res) => {
-	var username = req.cookies['username']
-	var getuseraccount = `SELECT * FROM user_account WHERE username=$1`
-	pool.query(getuseraccount, [username], (error, result) => {
-		if (error)
-			res.end(error);
-		var results = {
-			'rows': result.rows
-		};
-		res.render('pages/inventory', results)
 	});
 });
 
