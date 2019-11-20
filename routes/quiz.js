@@ -11,7 +11,6 @@ app.get('/math', (req, res) => res.render('pages/math'))
 app.get('/history', (req, res) => res.render('pages/history'))
 app.get('/science', (req, res) => res.render('pages/science'))
 app.get('/geography', (req, res) => res.render('pages/geography'))
-app.get('/inventory', (req, res) => res.render('pages/inventory'))
 
 app.post('/checkquiz', (req, res) => {
 	let body = req.body
@@ -34,10 +33,17 @@ app.post('/checkquiz', (req, res) => {
 				'msg': 'Database error'
 			})
 		} else {
-			res.status(200).render('pages/message', {
-				'title': 'Great Job!', 
-				'msg': `You Earned ${ coins } Coins`
-			})
+			if (coins === 0) {
+				res.status(200).render('pages/message', {
+					'title': 'Sorry, wrong answer~', 
+					'msg': `Better Luck Next Time`
+				})
+			} else {
+				res.status(200).render('pages/message', {
+					'title': `Great job!`, 
+					'msg': `You correctly answered ${ parseInt(coins / 5) } question(s). Earned ${ coins } Coins`
+				})
+			}
 		}
 	})
 })

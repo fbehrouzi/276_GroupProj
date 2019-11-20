@@ -29,7 +29,8 @@ app.get('/main', (req, res) => {
 				'coin': coin, 
 				'city': "", 
 				'weather': "", 
-				'temperature': ""
+				'temperature': "", 
+				'iconUrl': ''
 			}
 			if (err) {
 				res.render('pages/main', renderObj)
@@ -38,6 +39,7 @@ app.get('/main', (req, res) => {
 				renderObj.city = result.name
 				renderObj.weather = result.weather[0].main
 				renderObj.temperature = (result.main.temp - 273.15).toFixed(2)
+				renderObj.iconUrl = "http://openweathermap.org/img/wn/" + result.weather[0].icon + '.png'
 				res.render('pages/main', renderObj)
 			}
 		})

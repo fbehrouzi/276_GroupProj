@@ -19,19 +19,29 @@ var auth = require('../tools/authentication')		// defined in "../authentication.
 // Method: GET
 // Desc: login page
 app.get('/login', (req, res) => {
+	let redirectUrl = ''
+	if (req.query.redirect) {
+		redirectUrl = req.query.redirect
+	} else {
+		redirectUrl = '/main'
+	}
 	if (req.cookies && req.cookies['auth']) {	// Check for cookie
 		// Verify the Token
 		// If the user already logged in, redirect to main page
 		jwt.verify(req.cookies['auth'], auth.key, (err, decode) => {
 			if (err) {	// Token invalid
-				res.render('pages/login')	// Render login page
+				res.render('pages/login', {		// Render login page
+					'redirect': redirectUrl
+				})
 			} else {	// Token valid
 				res.cookie('username', decode.username)
-				res.redirect('/main')	// Render main page
+				res.redirect(redirectUrl)	// Redirect to original url
 			}
 		})
 	} else {	// User has not logged in
-		res.render('pages/login')	// Render login page
+		res.render('pages/login', {		// Render login page
+			'redirect': redirectUrl
+		})
 	}
 })
 
@@ -93,7 +103,11 @@ app.post('/login', (req, res) => {
 				res.cookie('username', body.username)
 				res.cookie('auth', token)
 
-				res.redirect('/main')
+				if (body.redirect) {
+					res.redirect(body.redirect)	// Redirect to original page
+				} else {
+					res.redirect('/main')	// Redirect to main page
+				}
 			} else {
 				res.status(200).render('pages/message', {
 					'title': 'Oops~', 
@@ -210,14 +224,14 @@ app.get('/*', (req, res, next) => {
 		// Verify the Token
 		jwt.verify(req.cookies['auth'], auth.key, (err, decode) => {
 			if (err) {	// Token invalid
-				res.redirect('/login')	// Redirect to login page
+				res.redirect('/login?redirect=' + req.url)	// Redirect to login page
 			} else {	// Token valid
 				res.cookie('username', decode.username)
 				next()	// Proceed to next step
 			}
 		})
 	} else {	// Does not have cookie
-		res.redirect('/login')	// Redirect to login page
+		res.redirect('/login?redirect=' + req.url)	// Redirect to login page
 	}
 })
 
@@ -229,14 +243,14 @@ app.post('/*', (req, res, next) => {
 		// Verify the Token
 		jwt.verify(req.cookies['auth'], auth.key, (err, decode) => {
 			if (err) {	// Token invalid
-				res.redirect('/login')	// Redirect to login page
+				res.redirect('/login?redirect=' + req.url)	// Redirect to login page
 			} else {	// Token valid
 				res.cookie('username', decode.username)
 				next()	// Proceed to next step
 			}
 		})
 	} else {	// Does not have cookie
-		res.redirect('/login')	// Redirect to login page
+		res.redirect('/login?redirect=' + req.url)	// Redirect to login page
 	}
 })
 

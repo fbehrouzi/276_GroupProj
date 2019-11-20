@@ -315,3 +315,27 @@ th, td {
   bottom: 200px;
   position: absolute;
 }
+
+.weather-gadget {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 400px;
+  text-indent: 40px;
+  margin-left: 20px;
+}
+
+.weather-div {
+  height: 50px;
+}
+
+.weather-font {
+  height: 50px;
+  width: 200px;
+  padding-top: 10px;
+  float: left;
+}
+
+.weather-icon {
+  padding-right: 0px;
+  float: left;
+}
