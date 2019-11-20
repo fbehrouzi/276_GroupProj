@@ -268,3 +268,28 @@ th, td {
    display: inline-block;
     vertical-align: top;
 }
+
+.weather-gadget {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 400px;
+  text-indent: 40px;
+  margin-left: 20px;
+}
+
+.weather-div {
+  height: 50px;
+}
+
+.weather-font {
+  height: 50px;
+  width: 200px;
+  padding-top: 10px;
+  float: left;
+}
+
+.weather-icon {
+  padding-right: 0px;
+  /*margin-left: 30px;*/
+  float: left;
+}
