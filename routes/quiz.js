@@ -15,14 +15,11 @@ app.get('/geography', (req, res) => res.render('pages/geography'))
 app.post('/checkquiz', (req, res) => {
 	let body = req.body
 	let coins = 0, totalQuestions = 4
-	if (body.q1 && body.q1 === '1') {
-		coins += 5
-	} else if (body.q2 && body.q2 === '1') {
-		coins += 5
-	} else if (body.q3 && body.q3 === '1') {
-		coins += 5
-	} else if (body.q4 && body.q4 === '1') {
-		coins += 5
+	let answers = Object.values(body)
+	for (let i = 0; i < answers.length; i++) {
+		if (answers[i] === '1') {
+			coins += 5
+		}
 	}
 	let username = req.cookies['username']
 	let query_cmd = `UPDATE user_account SET coin=coin+$1 WHERE username=$2`
