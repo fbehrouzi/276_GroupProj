@@ -289,29 +289,29 @@ th, td {
 }
 .slot1{
   width:130px;
-  height:130px;
-  left: 100px;
+  height:260px;
+  left: 90px;
   bottom: 210px;
   position: absolute;
 }
 .slot2{
   width:130px;
-  height:130px;
-  left: 280px;
+  height:260px;
+  left: 270px;
   bottom: 210px;
   position: absolute;
 }
 .slot3{
   width:130px;
-  height:130px;
-  left: 460px;
+  height:260px;
+  left: 450px;
   bottom: 200px;
   position: absolute;
 }
 .slot4{
   width:130px;
-  height:130px;
-  left: 630px;
+  height:260px;
+  left: 620px;
   bottom: 200px;
   position: absolute;
 }
