@@ -53,7 +53,7 @@ app.get('/main', (req, res) => {
 app.get('/checkin', (req, res) => {
 	let username = req.cookies['username']
 	let query_cmd = `UPDATE user_account SET coin=coin+$1 WHERE username=$2`
-	let coins = 2
+	let coins = 10
 	pool.query(query_cmd, [coins, username] , (err, results) => {
 		if (err) {
 			res.status(500).render('pages/message', {

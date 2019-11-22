@@ -12,6 +12,9 @@ app.get('/history', (req, res) => res.render('pages/history'))
 app.get('/science', (req, res) => res.render('pages/science'))
 app.get('/geography', (req, res) => res.render('pages/geography'))
 
+// Path: "/checkin"
+// Method: POST
+// Desc: verify the quiz answer
 app.post('/checkquiz', (req, res) => {
 	let body = req.body
 	let coins = 0, totalQuestions = 4
@@ -43,7 +46,7 @@ app.post('/checkquiz', (req, res) => {
 			}
 		}
 	})
-})
+}) // End of POST "/checkquiz"
 
 module.exports = app	// Export app
 
