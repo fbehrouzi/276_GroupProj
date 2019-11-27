@@ -61,12 +61,30 @@ var users = 0;
 app.get('/chat', (req, res) => res.render('pages/chatroom.ejs'))
 io.on('connection', function(socket) {
 	users++;
+	let cookieString = socket.request.headers.cookie
+	let lst = cookieString.split(';')
+	let username = ''
+	lst.map((curr, idx) => {
+		if (curr.split('=')[0] == 'username') {
+			username = curr.split('=')[1]
+		}
+	})
+	io.emit(username + ' joined the chatroom');
 	if(users == 1) {
 		io.emit('chat message', users + ' user in chatroom');
 	} else {
 		io.emit('chat message', users + ' users in chatroom');
 	}
 	socket.on('disconnect', function() {
+		let cookieString = socket.request.headers.cookie
+		let lst = cookieString.split(';')
+		let username = ''
+		lst.map((curr, idx) => {
+			if (curr.split('=')[0] == 'username') {
+				username = curr.split('=')[1]
+			}
+		})
+		io.emit(username + ' left the chatroom');
 		users--;
 		if(users == 1) {
 			io.emit('chat message', users + ' user in chatroom');
