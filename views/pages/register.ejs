@@ -27,12 +27,13 @@
               <input type="password" id="pwd-box" name="password" class="tboxes" required><br><br>
               <label class="logintext">Confirm Password</label><br>
               <input type="password" id="confirm-pwd-box" name="confirmPwd" class="tboxes" required><br><br>
-              <input type="radio" name="starter"><img src="images/air.jpg" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="radio" name="starter"><img src="images/fire.jpg" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="radio" name="starter"><img src="images/water.jpg" style="width:60px;height:75px;padding-left:10px"></input>
+              <input type="radio" name="starter" value="air" required><img src="images/air.jpg" style="width:60px;height:75px;padding-left:10px"></input>
+              <input type="radio" name="starter" value="fire" required><img src="images/fire.jpg" style="width:60px;height:75px;padding-left:10px"></input>
+              <input type="radio" name="starter" value="rock" required><img src="images/rock.jpg" style="width:60px;height:75px;padding-left:10px"></input>
+              <input type="radio" name="starter" value="water" required><img src="images/water.jpg" style="width:60px;height:75px;padding-left:10px"></input>
+              <br><br>
               <button type="button" class="regButton" onclick="
                 window.location.href='/login'">Back</button>
-
               <button type="submit" class="loginButton">Finish</button>
 
             </form>
