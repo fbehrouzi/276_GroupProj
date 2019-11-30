@@ -152,6 +152,9 @@ app.post('/register', (req, res) => {
 		!(body.username) || body.username.length === 0 ||
 		!(body.password) || body.password.length === 0 ||
 		!(body.confirmPwd) || body.confirmPwd.length === 0 ||
+		!(body.starter) || body.starter.length === 0 ||
+		(body.starter != 'air' && body.starter != 'fire' && 
+			body.starter != 'rock' && body.starter != 'water') ||
 		body.password != body.confirmPwd) {
 		res.status(400).render('pages/message', {
 			'title': 'Error', 
@@ -178,7 +181,7 @@ app.post('/register', (req, res) => {
 			})
 			return;
 		} else {	// Add the new user to the database
-			let insert_cmd = `INSERT INTO user_account (username, password, salt) VALUES ($1, $2, $3)`
+			let insert_cmd = `INSERT INTO user_account (username, password, salt, character) VALUES ($1, $2, $3, $4)`
 
 			// Encrypt password using PBKDF2 algorithm
 			let salt = sha256(uuid.v4())	// Ramdomly generated sequence as salt value
@@ -193,7 +196,7 @@ app.post('/register', (req, res) => {
 			).toString('hex')
 
 			// Insert a new entry to database
-			pool.query(insert_cmd, [body.username, pwd, salt], (err, results) => {
+			pool.query(insert_cmd, [body.username, pwd, salt, body.starter], (err, results) => {
 				if (err) {
 					res.status(500).render('pages/message', {
 						'title': 'Error', 

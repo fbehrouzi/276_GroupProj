@@ -22,11 +22,12 @@ app.get('/main', (req, res) => {
 			return;
 		}
 		let user = result.rows[0]
-		let coin = user.coin
+		let coin = user.coin, character = user.character
 		weather_api.getWeatherResults((err, result) => {
 			renderObj = {
 				'username': req.cookies['username'], 
 				'coin': coin, 
+				'character': character, 
 				'city': "", 
 				'weather': "", 
 				'temperature': "", 
