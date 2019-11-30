@@ -20,6 +20,11 @@ var main = require('./routes/main')			// defined in "./routes/main.js"
 var quiz = require('./routes/quiz')			// defined in "./routes/quiz.js"
 var store = require('./routes/store')		// defined in "./routes/store.js"
 
+app.get('/settings', (req, res) => res.render('pages/settings.ejs'))
+app.get('/changeuser', (req, res) => res.render('pages/changeuser.ejs'))
+app.get('/changepass', (req, res) => res.render('pages/changepass.ejs'))
+app.get('/deleteacc', (req, res) => res.render('pages/deleteacc.ejs'))
+
 
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
