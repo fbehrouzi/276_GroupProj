@@ -7,6 +7,7 @@ var app = express()
 var pool = require('../tools/database').pool		// defined in "../tools/database.js"
 var weather_api = require('../tools/weather_api')	// defined in "../tools/weather_api.js"
 
+// Price for items
 let price = {
 	'tomato': 5, 
 	'potato': 5, 
@@ -26,6 +27,9 @@ app.get('/store', (req, res) => {
 }) // End of GET "/store"
 
 
+// Path: "/buy"
+// Method: POST
+// Desc: buy operation
 app.post('/buy', (req, res) => {
 	let username = req.cookies['username']
 	let query_cmd = `SELECT * FROM user_account WHERE username=$1`
