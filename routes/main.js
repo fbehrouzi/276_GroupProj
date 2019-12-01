@@ -50,7 +50,8 @@ app.get('/main', (req, res) => {
 				'iconUrl': '', 
 				'imgs': [], 
 				'hidden': [], 
-				'time': []
+				'time': [], 
+				'disable': []
 			}
 			for (let i = 1; i <= 4; i++) {
 				let crop = "crop" + i
@@ -58,13 +59,16 @@ app.get('/main', (req, res) => {
 				if (user[crop] != 0) {
 					renderObj.imgs.push(crop_base_url + reverse_states_map[user["crop" + i]] + ".png")
 					renderObj.hidden.push('')
+					renderObj.disable.push('disabled')
 				} else {
 					renderObj.imgs.push('')
 					renderObj.hidden.push('hidden')
+					renderObj.disable.push('')
 				}
 				let curr_time = Math.floor(Date.now() / 1000)
 				renderObj.time.push(sec2str(curr_time - user["time" + i]))
 			}
+			console.log(renderObj)
 			if (err) {
 				res.render('pages/main', renderObj)
 			} else {

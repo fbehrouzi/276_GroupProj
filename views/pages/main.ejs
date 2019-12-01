@@ -55,7 +55,6 @@
               <h3>Temperature: <%= temperature %> ℃</h3>
             </div>
 
-            <% var time %>
             <div class="divLeft" style="display: inline-block;">
               <h2 id="timer1" style="margin-left: 70px;font-weight: bold;display: inline-block;"><%= time[0] %> </h2>
               <h2 id="timer2" style="margin-left: 40px;font-weight: bold;display: inline-block;"><%= time[1] %> </h2>
@@ -69,7 +68,6 @@
             <div class="divLeft">
               <img class="background" src="images/background.jpg" alt="farmPatch" >
 
-              <% var imgs %>
               <img class="slot1" src="<%= imgs[0] %>" alt="farmPatch" <%= hidden[0] %>>
               <img class="slot2" src="<%= imgs[1] %>" alt="farmPatch" <%= hidden[1] %>>
               <img class="slot3" src="<%= imgs[2] %>" alt="farmPatch" <%= hidden[2] %>>
@@ -77,13 +75,13 @@
               <br><br>
 
 
-              <button type="button" name="plant1" class="plantButton1" onclick="
+              <button type="button" <%= disable[0] %> name="plant1" class="plantButton1" onclick="
               window.location.href='/plantseed?patch=1'">Plant 1</button>
-              <button type="button" name="plant2" class="plantButton" onclick="
+              <button type="button" <%= disable[1] %> name="plant2" class="plantButton" onclick="
               window.location.href='/plantseed?patch=2'">Plant 2</button>
-              <button type="button" name="plant3" class="plantButton" onclick="
+              <button type="button" <%= disable[2] %> name="plant3" class="plantButton" onclick="
               window.location.href='/plantseed?patch=3'">Plant 3</button>
-              <button type="button" name="plant4" class="plantButton" onclick="
+              <button type="button" <%= disable[3] %> name="plant4" class="plantButton" onclick="
               window.location.href='/plantseed?patch=4'">Plant 4</button>
               <br><br><br>
 
