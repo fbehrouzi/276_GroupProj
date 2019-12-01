@@ -7,6 +7,14 @@ var app = express()
 var pool = require('../tools/database').pool		// defined in "../tools/database.js"
 var weather_api = require('../tools/weather_api')	// defined in "../tools/weather_api.js"
 
+var reverse_states_map = {
+	0: '', 
+	1: 'seed', 
+	2: 'growing', 
+	3: 'sprout', 
+	4: 'grown'
+}
+
 // Path: "/main"
 // Method: GET
 // Desc: main page
@@ -22,16 +30,29 @@ app.get('/main', (req, res) => {
 			return;
 		}
 		let user = result.rows[0]
-		let coin = user.coin, character = user.character
 		weather_api.getWeatherResults((err, result) => {
 			renderObj = {
 				'username': req.cookies['username'], 
-				'coin': coin, 
-				'character': character, 
+				'coin': user.coin, 
+				'character': user.character, 
 				'city': "", 
 				'weather': "", 
 				'temperature': "", 
-				'iconUrl': ''
+				'iconUrl': '', 
+				'imgs': [], 
+				'hidden': []
+			}
+			for (let i = 1; i <= 4; i++) {
+				let crop = "crop" + i
+				let hidden = "hidden" + i
+				let crop_base_url = "./images/"
+				if (user[crop] != 0) {
+					renderObj.imgs.push(crop_base_url + reverse_states_map[user["crop" + i]] + ".png")
+					renderObj.hidden.push('')
+				} else {
+					renderObj.imgs.push('')
+					renderObj.hidden.push('hidden')
+				}
 			}
 			if (err) {
 				res.render('pages/main', renderObj)

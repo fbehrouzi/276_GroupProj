@@ -69,21 +69,22 @@
             <div class="divLeft">
               <img class="background" src="images/background.jpg" alt="farmPatch" >
 
-              <img class="slot1" src="images/seed.png" alt="farmPatch">
-              <img class="slot2" src="images/grown.png" alt="farmPatch">
-              <img class="slot3" src="images/sprout.png" alt="farmPatch">
-              <img class="slot4" src="images/growing.png" alt="farmPatch">
+              <% var imgs %>
+              <img class="slot1" src="<%= imgs[0] %>" alt="farmPatch" <%= hidden[0] %>>
+              <img class="slot2" src="<%= imgs[1] %>" alt="farmPatch" <%= hidden[1] %>>
+              <img class="slot3" src="<%= imgs[2] %>" alt="farmPatch" <%= hidden[2] %>>
+              <img class="slot4" src="<%= imgs[3] %>" alt="farmPatch" <%= hidden[3] %>>
               <br><br>
 
 
               <button type="button" name="plant1" class="plantButton1" onclick="
-              window.location.href='/plantseed?patch=1">Plant 1</button>
+              window.location.href='/plantseed?patch=1'">Plant 1</button>
               <button type="button" name="plant2" class="plantButton" onclick="
-              window.location.href='/plantseed?patch=2">Plant 2</button>
+              window.location.href='/plantseed?patch=2'">Plant 2</button>
               <button type="button" name="plant3" class="plantButton" onclick="
-              window.location.href='/plantseed?patch=3">Plant 3</button>
+              window.location.href='/plantseed?patch=3'">Plant 3</button>
               <button type="button" name="plant4" class="plantButton" onclick="
-              window.location.href='/plantseed?patch=4">Plant 4</button>
+              window.location.href='/plantseed?patch=4'">Plant 4</button>
               <br><br><br>
 
               <div>

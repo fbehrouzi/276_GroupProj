@@ -38,9 +38,6 @@ app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => { res.redirect('/main') })	// Home page
 
-// Temp
-app.use('/', farm)		// Process requests related to the farming operations
-						// Find details in "./routes/farm.js"
 
 app.use('/', account)	// Process requests related to user account
 						// Find details in "./routes/account.js"
@@ -55,6 +52,9 @@ app.use('/', quiz)		// Process requests related to quiz
 
 app.use('/', store)		// Process requests related to store
 						// Find details in "./routes/store.js"
+
+app.use('/', farm)		// Process requests related to the farming operations
+						// Find details in "./routes/farm.js"
 
 app.get('/inventory', (req, res) => {
 	var username = req.cookies['username']

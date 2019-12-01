@@ -15,9 +15,9 @@ var states = {
 }
 
 // Path: "/plantseed"
-// Method: POST
+// Method: GET
 // Desc: plant operation
-app.post('/plantseed', (req, res) => {
+app.get('/plantseed', (req, res) => {
 	let username = req.cookies['username']
 	let query_cmd = `SELECT * FROM user_account WHERE username=$1`
 	let patch = req.query.patch
@@ -41,10 +41,8 @@ app.post('/plantseed', (req, res) => {
 		if (result.rows[0][crop] === 0) {
 			let update_cmd = `UPDATE user_account SET (${ crop }, ${ time })=($1, $2) where username=$3`
 			let curr_time = Math.floor(Date.now() / 1000)
-			console.log(crop, time)
 			pool.query(update_cmd, [1, curr_time, username], (err_update, result_update) => {
 				if (err_update) {
-					console.log(err_update)
 					res.status(500).render('pages/message', {
 						'title': 'Error', 
 						'msg': 'Database error'
@@ -55,7 +53,7 @@ app.post('/plantseed', (req, res) => {
 			})
 		}
 	})
-}) // End of POST "/plantseed"
+}) // End of GET "/plantseed"
 
 module.exports = app	// Export app
 
