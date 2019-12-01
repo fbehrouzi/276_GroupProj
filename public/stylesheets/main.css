@@ -207,6 +207,75 @@ label {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.plantButton1 {
+  background-color: #ccc;
+  color: black;
+  margin-left: 110px;
+  padding: 8px 20px 8px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid green;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  outline:none
+}
+
+.plantButton {
+  background-color: #ccc;
+  color: black;
+  margin-left: 50px;
+  padding: 8px 20px 8px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid green;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  outline:none
+}
+
+.harvestButton1 {
+  background-color: #ccc;
+  color: black;
+  margin-left: 70px;
+  padding: 8px 20px 8px 20px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid green;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  outline:none
+}
+
+.harvestButton {
+  background-color: #ccc;
+  color: black;
+  margin-left: 30px;
+  padding: 8px 20px 8px 20px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid green;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  outline:none
+}
+
+.plantDisabled {
+
+}
+
+.harvestDisabled {
+
+}
+
+
 /* Navigation bar */
 ul {
   list-style-type: none;
