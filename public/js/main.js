@@ -34,7 +34,7 @@ var timer = setInterval(() => {
 	for (let i = 0; i <= 3; i++) {
 		var t = document.getElementById("timer" + (i + 1))
 		let sec = str2sec(t.textContent)
-		if (sec >= 0) {
+		if (sec > 0) {
 			sec--
 			t.textContent = sec2str(sec)
 		} else {

@@ -15,6 +15,8 @@ var reverse_states_map = {
 	4: 'grown'
 }
 
+var growTime = 5 * 60		// 5 mins
+
 // Utility function: convert seconds to string in the form "xx:xx"
 function sec2str(sec) {
 	let minutes = Math.floor(sec / 60).toString()
@@ -56,17 +58,24 @@ app.get('/main', (req, res) => {
 			for (let i = 1; i <= 4; i++) {
 				let crop = "crop" + i
 				let crop_base_url = "./images/"
-				if (user[crop] != 0) {
-					renderObj.imgs.push(crop_base_url + reverse_states_map[user["crop" + i]] + ".png")
+				let timeElapsed = Math.floor(Date.now() / 1000) - user["time" + i]
+				let stage = user["crop" + i] + Math.floor(timeElapsed / growTime)
+				stage = stage > 4 ? 4 : stage
+				if (stage != 0) {
+					renderObj.imgs.push(crop_base_url + reverse_states_map[stage] + ".png")
 					renderObj.hidden.push('')
 					renderObj.disable.push('disabled')
+					if (stage >= 4) {
+						renderObj.time.push("00:00")
+					} else {
+						renderObj.time.push(sec2str(growTime - timeElapsed % growTime))
+					}
 				} else {
 					renderObj.imgs.push('')
 					renderObj.hidden.push('hidden')
 					renderObj.disable.push('')
+					renderObj.time.push("00:00")
 				}
-				let curr_time = Math.floor(Date.now() / 1000)
-				renderObj.time.push(sec2str(curr_time - user["time" + i]))
 			}
 			console.log(renderObj)
 			if (err) {
