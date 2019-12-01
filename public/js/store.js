@@ -13,6 +13,7 @@ function buyItems() {
   var s12 = document.getElementById("s12").value;
   var s13 = document.getElementById("s13").value;
   var s14 = document.getElementById("s14").value;
+  var s15 = document.getElementById("s15").value;
   if(s1 < 0){
     s1 = 0;
   }
@@ -55,7 +56,10 @@ function buyItems() {
   if(s14 < 0){
     s14 = 0;
   }
-  var cost = ((s1*1 + s2*1 + s3*1 + s4*1 + s5*1 + s6*1 + s7*1 + s8*1 + s9*1 + s10*1 + s11*1)*5) + ((s12*1 + s13*1 + s14*1)*10);
+  if(s15 < 0){
+    s15 = 0;
+  }
+  var cost = ((s1*1 + s2*1 + s3*1 + s4*1 + s5*1 + s6*1 + s7*1 + s8*1 + s9*1 + s10*1)*5) + ((s11*1 + s12*1 + s13*1 + s14*1 + s15*1)*10);
   var a = 10;
   if ( cost > a) {
     document.getElementById("error").innerHTML = "Sorry you dont have enough coins your total was " + cost + " but you only have " + a + " coins";
@@ -106,6 +110,9 @@ function buyItems() {
     //insert items into that field
   }
   if(s14 != 0){
+    //insert items into that field
+  } 
+  if(s15 != 0){
     //insert items into that field
   }
   a = a-cost;
