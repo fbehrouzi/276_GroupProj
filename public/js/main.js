@@ -38,11 +38,18 @@ for (let i = 0; i <= 3; i++) {
 var timer = setInterval(() => {
 	for (let i = 0; i <= 3; i++) {
 		let sec = str2sec(timeDisplay[i].textContent)
+		let redirect = false
 		if (sec > 0) {
 			sec--
 			timeDisplay[i].textContent = sec2str(sec)
+			if (sec <= 0) {
+				redirect = true
+			}
 		} else {
 			timeDisplay[i].textContent = "00:00"
+		}
+		if (redirect) {
+			window.location.href = "/main"
 		}
 	}
 	if (timeDisplay[0] <= 0 && timeDisplay[1] <= 0 && 

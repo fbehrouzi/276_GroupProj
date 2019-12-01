@@ -15,7 +15,8 @@ var reverse_states_map = {
 	4: 'grown'
 }
 
-var growTime = 5 * 60		// 5 mins
+var growTime = 2 * 60		// 2 mins
+// var growTime = 10			// 10 seconds
 
 // Utility function: convert seconds to string in the form "xx:xx"
 function sec2str(sec) {
