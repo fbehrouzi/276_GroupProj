@@ -45,7 +45,7 @@ app.post('/buy', (req, res) => {
 		let num = parseInt(body[itemNames[i]])
 		if (num != 0) {
 			coins_needed += price[itemNames[i]] * num
-			buyingList[itemNames[i]] += 1
+			buyingList[itemNames[i]] += num
 		}
 	}
 	pool.query(query_cmd, [username], (err, result) => {
