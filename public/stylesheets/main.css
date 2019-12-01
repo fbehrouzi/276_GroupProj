@@ -210,7 +210,7 @@ label {
 .plantButton1 {
   background-color: #ccc;
   color: black;
-  margin-left: 130px;
+  margin-left: 90px;
   padding: 8px 20px 8px 20px;
   font-size: 24px;
   font-weight: bold;
@@ -225,7 +225,7 @@ label {
 .plantButton {
   background-color: #ccc;
   color: black;
-  margin-left: 50px;
+  margin-left: 55px;
   padding: 8px 20px 8px 20px;
   font-size: 24px;
   font-weight: bold;
@@ -360,29 +360,29 @@ th, td {
 .slot1{
   width:130px;
   height:260px;
-  left: 90px;
-  bottom: 210px;
+  left: 120px;
+  bottom: 450px;
   position: absolute;
 }
 .slot2{
   width:130px;
   height:260px;
-  left: 270px;
-  bottom: 210px;
+  left: 300px;
+  bottom: 450px;
   position: absolute;
 }
 .slot3{
   width:130px;
   height:260px;
-  left: 450px;
-  bottom: 200px;
+  left: 480px;
+  bottom: 450px;
   position: absolute;
 }
 .slot4{
   width:130px;
   height:260px;
-  left: 620px;
-  bottom: 200px;
+  left: 650px;
+  bottom: 450px;
   position: absolute;
 }
 
