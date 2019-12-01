@@ -56,10 +56,10 @@
             </div>
 
             <div class="divLeft" style="display: inline-block;">
-              <h2 id="timer1" style="margin-left: 70px;font-weight: bold;display: inline-block;"><%= time[0] %> </h2>
-              <h2 id="timer2" style="margin-left: 40px;font-weight: bold;display: inline-block;"><%= time[1] %> </h2>
-              <h2 id="timer3" style="margin-left: 40px;font-weight: bold;display: inline-block;"><%= time[2] %> </h2>
-              <h2 id="timer4" style="margin-left: 30px;font-weight: bold;display: inline-block;"><%= time[3] %> </h2>
+              <h2 id="timer1" <%= hidden[0] %> style="margin-left: 70px;font-weight: bold;display: inline-block;"><%= time[0] %> </h2>
+              <h2 id="timer2" <%= hidden[1] %> style="margin-left: 40px;font-weight: bold;display: inline-block;"><%= time[1] %> </h2>
+              <h2 id="timer3" <%= hidden[2] %> style="margin-left: 40px;font-weight: bold;display: inline-block;"><%= time[2] %> </h2>
+              <h2 id="timer4" <%= hidden[3] %> style="margin-left: 30px;font-weight: bold;display: inline-block;"><%= time[3] %> </h2>
             </div>
 
 
@@ -86,14 +86,14 @@
               <br><br><br>
 
               <div>
-                <button type="button" disabled name="harvest1" class="harvestButton1" onclick="
-                window.location.href='/harvestplant?patch=1">Harvest 1</button>
-                <button type="button" disabled name="harvest2" class="harvestButton" onclick="
-                window.location.href='/harvestplant?patch=2">Harvest 2</button>
-                <button type="button" disabled name="harvest3" class="harvestButton" onclick="
-                window.location.href='/harvestplant?patch=3">Harvest 3</button>
-                <button type="button" disabled name="harvest4" class="harvestButton" onclick="
-                window.location.href='/harvestplant?patch=4">Harvest 4</button>
+                <button type="button" <%= harvest[0] %> name="harvest1" class="harvestButton1" onclick="
+                window.location.href='/harvestplant?patch=1'">Harvest 1</button>
+                <button type="button" <%= harvest[1] %> name="harvest2" class="harvestButton" onclick="
+                window.location.href='/harvestplant?patch=2'">Harvest 2</button>
+                <button type="button" <%= harvest[2] %> name="harvest3" class="harvestButton" onclick="
+                window.location.href='/harvestplant?patch=3'">Harvest 3</button>
+                <button type="button" <%= harvest[3] %> name="harvest4" class="harvestButton" onclick="
+                window.location.href='/harvestplant?patch=4'">Harvest 4</button>
               </div>
             </div>
 

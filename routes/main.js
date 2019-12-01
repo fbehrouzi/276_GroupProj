@@ -53,7 +53,8 @@ app.get('/main', (req, res) => {
 				'imgs': [], 
 				'hidden': [], 
 				'time': [], 
-				'disable': []
+				'disable': [], 
+				'harvest': []
 			}
 			for (let i = 1; i <= 4; i++) {
 				let crop = "crop" + i
@@ -61,23 +62,25 @@ app.get('/main', (req, res) => {
 				let timeElapsed = Math.floor(Date.now() / 1000) - user["time" + i]
 				let stage = user["crop" + i] + Math.floor(timeElapsed / growTime)
 				stage = stage > 4 ? 4 : stage
-				if (stage != 0) {
+				if (user["time" + i] != 0) {
 					renderObj.imgs.push(crop_base_url + reverse_states_map[stage] + ".png")
 					renderObj.hidden.push('')
 					renderObj.disable.push('disabled')
 					if (stage >= 4) {
 						renderObj.time.push("00:00")
+						renderObj.harvest.push('')
 					} else {
 						renderObj.time.push(sec2str(growTime - timeElapsed % growTime))
+						renderObj.harvest.push('disabled')
 					}
 				} else {
 					renderObj.imgs.push('')
 					renderObj.hidden.push('hidden')
 					renderObj.disable.push('')
 					renderObj.time.push("00:00")
+					renderObj.harvest.push('disabled')
 				}
 			}
-			console.log(renderObj)
 			if (err) {
 				res.render('pages/main', renderObj)
 			} else {
