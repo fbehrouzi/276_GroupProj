@@ -206,7 +206,7 @@ label {
   background-color: #f1f1f1;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
- 
+
 .plantButton1 {
   background-color: #ccc;
   color: black;
@@ -235,6 +235,16 @@ label {
   -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
   outline:none
+}
+
+.plantButton1:hover:enabled {
+  background-color: #f1f1f1;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.plantButton:hover:enabled {
+  background-color: #f1f1f1;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .harvestButton1 {
@@ -266,15 +276,32 @@ label {
   transition-duration: 0.1s;
   outline:none
 }
-
-.plantDisabled {
-
+.harvestButton1:hover:enabled {
+  background-color: #f1f1f1;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-.harvestDisabled {
-
+.harvestButton:hover:enabled {
+  background-color: #f1f1f1;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+
+.plantButton1:disabled {
+  background-color: #aaa;
+}
+
+.plantButton:disabled {
+  background-color: #aaa;
+}
+
+.harvestButton1:disabled {
+  background-color: #707070;
+}
+
+.harvestButton:disabled {
+  background-color: #707070 ;
+}
 
 /* Navigation bar */
 ul {

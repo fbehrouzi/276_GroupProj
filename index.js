@@ -19,6 +19,7 @@ var account = require('./routes/account')		// defined in "./routes/account.js"
 var main = require('./routes/main')			// defined in "./routes/main.js"
 var quiz = require('./routes/quiz')			// defined in "./routes/quiz.js"
 var store = require('./routes/store')		// defined in "./routes/store.js"
+var farm = require('./routes/farm')			// defined in "./routes/farm.js"
 
 app.get('/farmagatchi', (req, res) => res.render('pages/farmagatchi.ejs'))
 app.get('/settings', (req, res) => res.render('pages/settings.ejs'))
@@ -37,6 +38,7 @@ app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => { res.redirect('/main') })	// Home page
 
+
 app.use('/', account)	// Process requests related to user account
 						// Find details in "./routes/account.js"
 
@@ -50,6 +52,9 @@ app.use('/', quiz)		// Process requests related to quiz
 
 app.use('/', store)		// Process requests related to store
 						// Find details in "./routes/store.js"
+
+app.use('/', farm)		// Process requests related to the farming operations
+						// Find details in "./routes/farm.js"
 
 app.get('/inventory', (req, res) => {
 	var username = req.cookies['username']

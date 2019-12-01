@@ -7,6 +7,25 @@ var app = express()
 var pool = require('../tools/database').pool		// defined in "../tools/database.js"
 var weather_api = require('../tools/weather_api')	// defined in "../tools/weather_api.js"
 
+var reverse_states_map = {
+	0: '', 
+	1: 'seed', 
+	2: 'growing', 
+	3: 'sprout', 
+	4: 'grown'
+}
+
+var growTime = 5 * 60		// 5 mins
+
+// Utility function: convert seconds to string in the form "xx:xx"
+function sec2str(sec) {
+	let minutes = Math.floor(sec / 60).toString()
+	let seconds = (sec % 60).toString()
+	minutes = minutes.length <= 1 ? '0' + minutes : minutes
+	seconds = seconds.length <= 1 ? '0' + seconds : seconds
+	return minutes + ':' + seconds
+} // End of sec2str
+
 // Path: "/main"
 // Method: GET
 // Desc: main page
@@ -22,17 +41,43 @@ app.get('/main', (req, res) => {
 			return;
 		}
 		let user = result.rows[0]
-		let coin = user.coin, character = user.character
 		weather_api.getWeatherResults((err, result) => {
 			renderObj = {
 				'username': req.cookies['username'], 
-				'coin': coin, 
-				'character': character, 
+				'coin': user.coin, 
+				'character': user.character, 
 				'city': "", 
 				'weather': "", 
 				'temperature': "", 
-				'iconUrl': ''
+				'iconUrl': '', 
+				'imgs': [], 
+				'hidden': [], 
+				'time': [], 
+				'disable': []
 			}
+			for (let i = 1; i <= 4; i++) {
+				let crop = "crop" + i
+				let crop_base_url = "./images/"
+				let timeElapsed = Math.floor(Date.now() / 1000) - user["time" + i]
+				let stage = user["crop" + i] + Math.floor(timeElapsed / growTime)
+				stage = stage > 4 ? 4 : stage
+				if (stage != 0) {
+					renderObj.imgs.push(crop_base_url + reverse_states_map[stage] + ".png")
+					renderObj.hidden.push('')
+					renderObj.disable.push('disabled')
+					if (stage >= 4) {
+						renderObj.time.push("00:00")
+					} else {
+						renderObj.time.push(sec2str(growTime - timeElapsed % growTime))
+					}
+				} else {
+					renderObj.imgs.push('')
+					renderObj.hidden.push('hidden')
+					renderObj.disable.push('')
+					renderObj.time.push("00:00")
+				}
+			}
+			console.log(renderObj)
 			if (err) {
 				res.render('pages/main', renderObj)
 			} else {

@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="stylesheets/main.css">
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/main.js" defer></script>
     <meta charset="utf-8">
 
   </head>
@@ -47,7 +47,6 @@
 
             <div class="weather-gadget">
               <h4>Current Weather: </h4>
-              <!-- <h3>Thursday, 13:30 (change these)</h3> -->
               <h3>City: <%= city %></h3>
               <div class="weather-div">
                 <div class="weather-font">Weather: <%= weather %></div>
@@ -55,28 +54,46 @@
               </div>
               <h3>Temperature: <%= temperature %> ℃</h3>
             </div>
-            <br><br><br><br><br><br><br><br><br>            
+
+            <div class="divLeft" style="display: inline-block;">
+              <h2 id="timer1" style="margin-left: 70px;font-weight: bold;display: inline-block;"><%= time[0] %> </h2>
+              <h2 id="timer2" style="margin-left: 40px;font-weight: bold;display: inline-block;"><%= time[1] %> </h2>
+              <h2 id="timer3" style="margin-left: 40px;font-weight: bold;display: inline-block;"><%= time[2] %> </h2>
+              <h2 id="timer4" style="margin-left: 30px;font-weight: bold;display: inline-block;"><%= time[3] %> </h2>
+            </div>
+
+
+            <br><br><br><br><br><br><br><br><br><br><br>
 
             <div class="divLeft">
               <img class="background" src="images/background.jpg" alt="farmPatch" >
 
-              <img class="slot1" src="images/seed.png" alt="farmPatch">
-              <img class="slot2" src="images/grown.png" alt="farmPatch">
-              <img class="slot3" src="images/sprout.png" alt="farmPatch">
-              <img class="slot4" src="images/growing.png" alt="farmPatch">
+              <img class="slot1" src="<%= imgs[0] %>" alt="farmPatch" <%= hidden[0] %>>
+              <img class="slot2" src="<%= imgs[1] %>" alt="farmPatch" <%= hidden[1] %>>
+              <img class="slot3" src="<%= imgs[2] %>" alt="farmPatch" <%= hidden[2] %>>
+              <img class="slot4" src="<%= imgs[3] %>" alt="farmPatch" <%= hidden[3] %>>
               <br><br>
 
-              <button type="button" name="plant1" class="plantButton1">Plant 1</button>
-              <button type="button" name="plant2" class="plantButton">Plant 2</button>
-              <button type="button" name="plant3" class="plantButton">Plant 3</button>
-              <button type="button" name="plant4" class="plantButton">Plant 4</button>
-              <br><br>
+
+              <button type="button" <%= disable[0] %> name="plant1" class="plantButton1" onclick="
+              window.location.href='/plantseed?patch=1'">Plant 1</button>
+              <button type="button" <%= disable[1] %> name="plant2" class="plantButton" onclick="
+              window.location.href='/plantseed?patch=2'">Plant 2</button>
+              <button type="button" <%= disable[2] %> name="plant3" class="plantButton" onclick="
+              window.location.href='/plantseed?patch=3'">Plant 3</button>
+              <button type="button" <%= disable[3] %> name="plant4" class="plantButton" onclick="
+              window.location.href='/plantseed?patch=4'">Plant 4</button>
+              <br><br><br>
 
               <div>
-                <button type="button" name="harvest1" class="harvestButton1">Harvest 1</button>
-                <button type="button" name="harvest2" class="harvestButton">Harvest 2</button>
-                <button type="button" name="harvest3" class="harvestButton">Harvest 3</button>
-                <button type="button" name="harvest4" class="harvestButton">Harvest 4</button>
+                <button type="button" disabled name="harvest1" class="harvestButton1" onclick="
+                window.location.href='/harvestplant?patch=1">Harvest 1</button>
+                <button type="button" disabled name="harvest2" class="harvestButton" onclick="
+                window.location.href='/harvestplant?patch=2">Harvest 2</button>
+                <button type="button" disabled name="harvest3" class="harvestButton" onclick="
+                window.location.href='/harvestplant?patch=3">Harvest 3</button>
+                <button type="button" disabled name="harvest4" class="harvestButton" onclick="
+                window.location.href='/harvestplant?patch=4">Harvest 4</button>
               </div>
             </div>
 
