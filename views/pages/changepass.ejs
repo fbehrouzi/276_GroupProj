@@ -2,7 +2,7 @@
   <head>
     <!-- <link rel="stylesheet" href="stylesheets/quiz.css"> -->
     <link rel="stylesheet" href="stylesheets/main.css">
-    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/login.js" defer></script>
     <meta charset="utf-8">
 
   </head>
@@ -27,9 +27,15 @@
                 <h1 id="h1green">Change Password</h1>
 
                 <div id="topics">
-                  <form class="" action="index.html" method="post">
-                    <p>What would you like to change your password too?</p><input type="text" name="newPass" value="" placeholder="New Password"></input>
-                    <button type="submit" name="submit">Submit</button>
+                  <form class="" action="/changepass" method="post">
+                    <p>Old password:</p>
+                    <input type="password" name="oldpwd" placeholder="Old Password" required></input>
+                    <!-- <p>What would you like to change your password too?</p> -->
+                    <p>New password:</p>
+                    <input type="password" name="newpwd" id="pwd-box" placeholder="New Password" required></input>
+                    <p>Confirm new password:</p>
+                    <input type="password" name="confirmPwd" id="confirm-pwd-box" placeholder="Confirm Password" required></input>
+                    <button type="submit">Submit</button>
                   </form>
                 </div>
 
