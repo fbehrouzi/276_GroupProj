@@ -30,12 +30,34 @@
           <div id="topics">
             <form action="/buy" method="post">
               <h2>Plants</h2>
-              <input type="number" id="s1" min="0" value="0" name="corn">Corn 5 Coins<img src="images/cornn.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="number" id="s2" min="0" value="0" name="tomato">Tomatoes 5 Coins<img src="images/tomatodude.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="number" id="s3" min="0" value="0" name="pumpkin">Pumpkins 5 Coins<img src="images/evilpumpkin.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="number" id="s4" min="0" value="0" name="potato">Potatoes 5 Coins<img src="images/potato.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="number" id="s5" min="0" value="0" name="cabbage">Cabbage 5 Coins<img src="images/cabby.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
-              <input type="number" id="s6" min="0" value="0" name="carrot">Carrots 5 Coins<img src="images/carrosaur.jpg" alt="profilePic" style="width:60px;height:75px;padding-left:10px"></input>
+              <div style="width: 100%;" >
+                <table style="margin-left: auto; margin-right: auto;">
+                  <tr>
+                    <th><img src="images/cornn.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                    <th><img src="images/tomatodude.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                    <th><img src="images/evilpumpkin.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                    <th><img src="images/potato.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                    <th><img src="images/cabby.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                    <th><img src="images/carrosaur.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                  </tr>
+                  <tr>
+                    <td>Corn 5 Coins</td>
+                    <td>Tomatoes 5 Coins</td>
+                    <td>Pumpkins 5 Coins</td>
+                    <td>Potatoes 5 Coins</td>
+                    <td>Cabbage 5 Coins</td>
+                    <td>Carrots 5 Coins</td>                  
+                  </tr>
+                  <tr>
+                    <td><input class="numberField" type="number" id="s1" min="0" value="0" name="corn"></input></td>
+                    <td><input class="numberField" type="number" id="s2" min="0" value="0" name="tomato"></input></td>
+                    <td><input class="numberField" type="number" id="s3" min="0" value="0" name="pumpkin"></input></td>
+                    <td><input class="numberField" type="number" id="s4" min="0" value="0" name="potato"></input></td>
+                    <td><input class="numberField" type="number" id="s5" min="0" value="0" name="cabbage"></input></td>
+                    <td><input class="numberField" type="number" id="s6" min="0" value="0" name="carrot"></input></td>
+                  </tr>
+                </table>
+              </div>
 <!--
               <h2>Fertilizer</h2>
               <input type="number" id="s7" min="0" value="0">Fertilizer 5 Coins</input>
@@ -51,7 +73,7 @@
               <input type="number" id="s13" value="0">Chew Toy 10 Coins</input>
               <input type="number" id="s14" value="0">Stuffed Animal 10 Coins</input> -->
               <br>
-              <button type="submit" id="submit" value="Submit" onclick="buyItems(); this.onclick=null;">Submit Order</button>
+              <button style="float: right; margin-right: 100px;" type="submit" id="submit" value="Submit" onclick="buyItems(); this.onclick=null;">Submit Order</button>
             </form>
             <h1 id="total">Negative inputs are invalid</h1>
           </div>
