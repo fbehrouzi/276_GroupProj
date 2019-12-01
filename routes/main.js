@@ -15,6 +15,15 @@ var reverse_states_map = {
 	4: 'grown'
 }
 
+// Utility function: convert seconds to string in the form "xx:xx"
+function sec2str(sec) {
+	let minutes = Math.floor(sec / 60).toString()
+	let seconds = (sec % 60).toString()
+	minutes = minutes.length <= 1 ? '0' + minutes : minutes
+	seconds = seconds.length <= 1 ? '0' + seconds : seconds
+	return minutes + ':' + seconds
+} // End of sec2str
+
 // Path: "/main"
 // Method: GET
 // Desc: main page
@@ -40,11 +49,11 @@ app.get('/main', (req, res) => {
 				'temperature': "", 
 				'iconUrl': '', 
 				'imgs': [], 
-				'hidden': []
+				'hidden': [], 
+				'time': []
 			}
 			for (let i = 1; i <= 4; i++) {
 				let crop = "crop" + i
-				let hidden = "hidden" + i
 				let crop_base_url = "./images/"
 				if (user[crop] != 0) {
 					renderObj.imgs.push(crop_base_url + reverse_states_map[user["crop" + i]] + ".png")
@@ -53,6 +62,8 @@ app.get('/main', (req, res) => {
 					renderObj.imgs.push('')
 					renderObj.hidden.push('hidden')
 				}
+				let curr_time = Math.floor(Date.now() / 1000)
+				renderObj.time.push(sec2str(curr_time - user["time" + i]))
 			}
 			if (err) {
 				res.render('pages/main', renderObj)

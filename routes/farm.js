@@ -52,6 +52,7 @@ app.get('/plantseed', (req, res) => {
 				res.redirect('/main')
 			})
 		}
+		res.redirect('/main')
 	})
 }) // End of GET "/plantseed"
 
