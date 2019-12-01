@@ -8,9 +8,13 @@ var pool = require('../tools/database').pool		// defined in "../tools/database.j
 
 app.get('/quiz', (req, res) => { res.render('pages/quiz') })
 app.get('/math', (req, res) => res.render('pages/math'))
+app.get('/math2', (req, res) => res.render('pages/math2'))
 app.get('/history', (req, res) => res.render('pages/history'))
+app.get('/history2', (req, res) => res.render('pages/history2'))
 app.get('/science', (req, res) => res.render('pages/science'))
+app.get('/science2', (req, res) => res.render('pages/science2'))
 app.get('/geography', (req, res) => res.render('pages/geography'))
+app.get('/geography2', (req, res) => res.render('pages/geography2'))
 
 // Path: "/checkin"
 // Method: POST

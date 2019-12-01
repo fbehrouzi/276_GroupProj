@@ -11,7 +11,6 @@
 
 <!-- <header id="site-header"> -->
 <!-- </header> -->
-
         <header id="mainheader">
 
             <ul>
@@ -30,10 +29,10 @@
           <div id="topics">
             <h1>Topics</h1>
 
-            <h2><a href="/math">Math</a></h2>
-            <h2><a href="/history">History</a></h2>
-            <h2><a href="/science">Science</a></h2>
-            <h2><a href="/geography">Geography</a></h2>
+            <h2><a id="mathQuizes" href="#" onclick="randomGen();">Math</a></h2>
+            <h2><a id="HistoryQuizes" href="#" onclick="randomGen();">History</a></h2>
+            <h2><a id="ScienceQuizes" href="#" onclick="randomGen();">Science</a></h2>
+            <h2><a id="GeographyQuizes" href="#" onclick="randomGen();">Geography</a></h2>
           </div>
 
             </header>
@@ -43,6 +42,24 @@
               var curr_date = new Date();
               document.getElementById("date").innerHTML = curr_date;
             }
+            </script>
+            <script>
+              function randomGen(){
+                  ran = Math.floor(Math.random()*2) + 1;
+                  console.log(ran);                
+                if (ran == 2) {
+                  document.getElementById("mathQuizes").href = "/math2";
+                  document.getElementById("HistoryQuizes").href = "/history2";
+                  document.getElementById("ScienceQuizes").href = "/science2";
+                  document.getElementById("GeographyQuizes").href = "/geography2";
+                }else{
+                  document.getElementById("mathQuizes").href = "/math";
+                  document.getElementById("HistoryQuizes").href = "/history";
+                  document.getElementById("ScienceQuizes").href = "/science";
+                  document.getElementById("GeographyQuizes").href = "/geography";
+                }
+              }
+              
             </script>
 
             <script>
