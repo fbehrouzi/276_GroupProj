@@ -339,3 +339,6 @@ th, td {
   padding-right: 0px;
   float: left;
 }
+.numberField{
+  width: 40px;
+}
