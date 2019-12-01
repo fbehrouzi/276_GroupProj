@@ -17,6 +17,13 @@ body {
     background-color: green;
 }
 
+.tamImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 header {
   position: relative;
   margin-left: 70px;
@@ -144,6 +151,44 @@ label {
 }
 
 .regButton:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.levelButton {
+  background-color: #ccc;
+  color: black;
+  padding: 15px 20px 15px 20px;
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid green;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  outline:none
+}
+
+.levelButton:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.feedButton {
+  background-color: #ccc;
+  color: black;
+  margin-left: 60px;
+  font-size: 19px;
+  padding: 13.5px 20px 13.5px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid green;
+  border-radius: 8px;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  outline:none
+}
+
+.feedButton:hover {
   background-color: #f1f1f1;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
