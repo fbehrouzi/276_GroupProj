@@ -29,18 +29,32 @@ function str2sec(str) {
 	return seconds
 }
 
+var timeDisplay = []
+for (let i = 0; i <= 3; i++) {
+	timeDisplay.push(document.getElementById("timer" + (i + 1)))
+}
+
 // Crops timer
 var timer = setInterval(() => {
 	for (let i = 0; i <= 3; i++) {
-		var t = document.getElementById("timer" + (i + 1))
-		let sec = str2sec(t.textContent)
+		let sec = str2sec(timeDisplay[i].textContent)
+		let redirect = false
 		if (sec > 0) {
 			sec--
-			t.textContent = sec2str(sec)
+			timeDisplay[i].textContent = sec2str(sec)
+			if (sec <= 0) {
+				redirect = true
+			}
 		} else {
-			t.textContent = "00:00"
-			clearInterval(timer)
+			timeDisplay[i].textContent = "00:00"
 		}
+		if (redirect) {
+			window.location.href = "/main"
+		}
+	}
+	if (timeDisplay[0] <= 0 && timeDisplay[1] <= 0 && 
+		timeDisplay[2] <= 0 && timeDisplay[3] <= 0) {
+		clearInterval(timer)
 	}
 }, 1000)
 

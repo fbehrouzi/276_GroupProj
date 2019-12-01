@@ -86,14 +86,14 @@
               <br><br><br>
 
               <div>
-                <button type="button" disabled name="harvest1" class="harvestButton1" onclick="
-                window.location.href='/harvestplant?patch=1">Harvest 1</button>
-                <button type="button" disabled name="harvest2" class="harvestButton" onclick="
-                window.location.href='/harvestplant?patch=2">Harvest 2</button>
-                <button type="button" disabled name="harvest3" class="harvestButton" onclick="
-                window.location.href='/harvestplant?patch=3">Harvest 3</button>
-                <button type="button" disabled name="harvest4" class="harvestButton" onclick="
-                window.location.href='/harvestplant?patch=4">Harvest 4</button>
+                <button type="button" <%= harvest[0] %> name="harvest1" class="harvestButton1" onclick="
+                window.location.href='/harvestplant?patch=1'">Harvest 1</button>
+                <button type="button" <%= harvest[1] %> name="harvest2" class="harvestButton" onclick="
+                window.location.href='/harvestplant?patch=2'">Harvest 2</button>
+                <button type="button" <%= harvest[2] %> name="harvest3" class="harvestButton" onclick="
+                window.location.href='/harvestplant?patch=3'">Harvest 3</button>
+                <button type="button" <%= harvest[3] %> name="harvest4" class="harvestButton" onclick="
+                window.location.href='/harvestplant?patch=4'">Harvest 4</button>
               </div>
             </div>
 

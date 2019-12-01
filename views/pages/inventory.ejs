@@ -4,7 +4,7 @@
  <html lang="en" dir="ltr">
    <head>
      <link rel="stylesheet" href="stylesheets/main.css">
-     <script type="text/javascript" src="js/login.js"></script>
+     <script type="text/javascript" src="js/inventory.js" defer></script>
      <meta charset="utf-8">
 
    </head>
@@ -49,14 +49,14 @@
                      <td><%= user_name.username %></td>
                      <td><%= user_name.coin %></td>
                      <td><%= user_name.gem %></td>
-                     <td><%= user_name.seed %></td>
-                     <td><%= user_name.tomato %></td>
-                     <td><%= user_name.potato %></td>
-                     <td><%= user_name.pumpkin %></td>
-                     <td><%= user_name.corn %></td>
-                     <td><%= user_name.cabbage %></td>
-                     <td><%= user_name.carrot %></td>
-                     <td><%= user_name.watermelon %></td>
+                     <td id="td1"><%= user_name.seed %></td>
+                     <td id="td2"><%= user_name.tomato %></td>
+                     <td id="td3"><%= user_name.potato %></td>
+                     <td id="td4"><%= user_name.pumpkin %></td>
+                     <td id="td5"><%= user_name.corn %></td>
+                     <td id="td6"><%= user_name.cabbage %></td>
+                     <td id="td7"><%= user_name.carrot %></td>
+                     <td id="td8"><%= user_name.watermelon %></td>
                    </tr>
                    <% }); %>
 
@@ -77,7 +77,7 @@
                    <button style="float:right; width:60px; height:25px; margin-right:40px;" onclick="sellItem()">Sell</button>
              </header>
 
-             <script>
+             <!-- <script>
              function DateFunction(){
                var curr_date = new Date();
                document.getElementById("date").innerHTML = curr_date;
@@ -99,7 +99,7 @@
 
              <script>
              setInterval(DateFunction, 1000);
-             </script>
+             </script> -->
 
 
            <footer id="site-footer">
