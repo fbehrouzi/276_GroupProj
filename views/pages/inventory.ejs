@@ -58,14 +58,39 @@
                      <td><%= user_name.watermelon %></td>
                    </tr>
                    <% }); %>
-                   </table>
 
+                    <tr>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td><input class="numberField" id="stock1" type="number" min="0" value="0" ></input></td>
+                     <td><input class="numberField" id="stock2" type="number" min="0" value="0" ></input></td>
+                     <td><input class="numberField" id="stock3" type="number" min="0" value="0" ></input></td>
+                     <td><input class="numberField" id="stock4" type="number" min="0" value="0"  ></input></td>
+                     <td><input class="numberField" id="stock5" type="number" min="0" value="0"  ></input></td>
+                     <td><input class="numberField" id="stock6" type="number" min="0" value="0"  ></input></td>
+                     <td><input class="numberField" id="stock7" type="number" min="0" value="0"  ></input></td>
+                     <td><input class="numberField" id="stock8" type="number" min="0" value="0" ></input></td>
+                   </tr>
+                   </table>
+                   <button style="float:right; width:60px; height:25px; margin-right:40px;" onclick="sellItem()">Sell</button>
              </header>
 
              <script>
              function DateFunction(){
                var curr_date = new Date();
                document.getElementById("date").innerHTML = curr_date;
+             }
+               document.getElementById("stock1").max = user_name.seed;
+               document.getElementById("stock2").max = user_name.tomato;
+               document.getElementById("stock3").max = user_name.potato;
+               document.getElementById("stock4").max = user_name.pumpkin;
+               document.getElementById("stock5").max = user_name.corn;
+               document.getElementById("stock6").max = user_name.cabbage;
+               document.getElementById("stock7").max = user_name.carrot;
+               document.getElementById("stock8").max = user_name.watermelon;
+             function sellItem(){
+
              }
              </script>
 
