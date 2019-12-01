@@ -206,11 +206,11 @@ label {
   background-color: #f1f1f1;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-
+ 
 .plantButton1 {
   background-color: #ccc;
   color: black;
-  margin-left: 110px;
+  margin-left: 130px;
   padding: 8px 20px 8px 20px;
   font-size: 24px;
   font-weight: bold;
@@ -240,7 +240,7 @@ label {
 .harvestButton1 {
   background-color: #ccc;
   color: black;
-  margin-left: 70px;
+  margin-left: 80px;
   padding: 8px 20px 8px 20px;
   font-size: 22px;
   font-weight: bold;
@@ -255,7 +255,7 @@ label {
 .harvestButton {
   background-color: #ccc;
   color: black;
-  margin-left: 30px;
+  margin-left: 35px;
   padding: 8px 20px 8px 20px;
   font-size: 22px;
   font-weight: bold;
@@ -353,8 +353,9 @@ th, td {
 
 .background{
   width:800px;
-  height:600px;
+  height:350px;
   position: relative;
+
 }
 .slot1{
   width:130px;
