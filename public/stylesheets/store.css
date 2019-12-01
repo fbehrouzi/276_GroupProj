@@ -59,7 +59,7 @@ h2 {
 input {
   text-align: center;
   color: blue;
-  text-indent: 40px;
+  /*text-indent: 40px;*/
   font-family: Verdana;
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;

@@ -9,6 +9,7 @@ var weather_api = require('../tools/weather_api')	// defined in "../tools/weathe
 
 // Price for items
 let price = {
+	'seed': 1, 
 	'tomato': 5, 
 	'potato': 5, 
 	'pumpkin': 5, 
@@ -42,7 +43,8 @@ app.post('/buy', (req, res) => {
 		'corn': 0, 
 		'cabbage': 0, 
 		'carrot': 0, 
-		'watermelon': 0
+		'watermelon': 0, 
+		'seed': 0
 	}
 	let coins_needed = 0
 	for (let i = 0; i < itemNames.length; i++) {
@@ -69,13 +71,12 @@ app.post('/buy', (req, res) => {
 			let update_cmd = `UPDATE user_account SET 
 				coin=coin-$1, tomato=tomato+$2, potato=potato+$3, 
 				pumpkin=pumpkin+$4, corn=corn+$5, cabbage=cabbage+$6, 
-				carrot=carrot+$7, watermelon=watermelon+$8 WHERE username=$9`
+				carrot=carrot+$7, watermelon=watermelon+$8, seed=seed+$9 WHERE username=$10`
 			let data = Object.values(buyingList)
 			data.push(username)
 			data.unshift(coins_needed)
 			pool.query(update_cmd, data, (err, result) => {
 				if (err) {
-					console.log(err)
 					res.status(500).render('pages/message', {
 						'title': 'Error', 
 						'msg': 'Database error'

@@ -46,10 +46,17 @@ app.get('/plantseed', (req, res) => {
 			})
 			return;
 		}
+		if (result.rows[0].seed <= 0) {
+			res.status(200).render('pages/message', {
+				'title': 'Oops', 
+				'msg': "Seems like you don't have enough seed"
+			})
+			return;
+		}
 		let crop = "crop" + patch
 		let time = "time" + patch
 		if (result.rows[0][crop] === 0) {
-			let update_cmd = `UPDATE user_account SET (${ crop }, ${ time })=($1, $2) where username=$3`
+			let update_cmd = `UPDATE user_account SET seed=seed-1, ${ crop }=$1, ${ time }=$2 where username=$3`
 			let curr_time = Math.floor(Date.now() / 1000)
 			pool.query(update_cmd, [1, curr_time, username], (err_update, result_update) => {
 				if (err_update) {
