@@ -4,9 +4,9 @@
 
 // Database
 const { Pool } = require('pg')
-// var pool = new Pool({
-// 	connectionString: process.env.DATABASE_URL
-// })
+var pool = new Pool({
+	connectionString: process.env.DATABASE_URL
+})
 
 // var pool = new Pool ({
 // 	user: 'postgres',
