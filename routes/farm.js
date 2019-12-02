@@ -27,6 +27,8 @@ var itemsMap = {
 var plantXP = 10
 var harvestXP = 30
 
+var consume_hunger = 10
+
 // Path: "/plantseed"
 // Method: GET
 // Desc: plant operation
@@ -107,10 +109,21 @@ app.get('/harvestplant', (req, res) => {
 		let harvestItem = itemsMap[harvestItemNum]
 		let crop = "crop" + patch
 		let time = "time" + patch
-		let update_cmd = `UPDATE user_account SET ${harvestItem}=${harvestItem}+1, ${crop}=0, ${time}=0, xp=$1, lv=$2 WHERE username=$3`
+		let update_cmd = `UPDATE user_account SET ${harvestItem}=${harvestItem}+1, ${crop}=0, ${time}=0, xp=$1, lv=$2, hunger=$3 WHERE username=$4`
 		let xp = (parseInt(user.xp) + harvestXP) % 100
 		let lv = parseInt(user.lv) + Math.floor((parseInt(user.xp) + harvestXP) / 100)
-		pool.query(update_cmd, [xp, lv, username], (err_update, result_update) => {
+		let hunger = parseInt(user.hunger)
+		if (hunger < consume_hunger) {
+			res.status(200).render('pages/message', {
+				'title': 'Sorry', 
+				'msg': "Your Farmagatchi is too hungury, go feed him first~"
+			})
+			return;
+		} else {
+			hunger -= consume_hunger
+		}
+
+		pool.query(update_cmd, [xp, lv, hunger, username], (err_update, result_update) => {
 			if (err_update) {
 				res.status(500).render('pages/message', {
 					'title': 'Error', 

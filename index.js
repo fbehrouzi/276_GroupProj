@@ -40,8 +40,8 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => { res.redirect('/main') })	// Home page
 
 
-// app.use('/', account)	// Process requests related to user account
-// 						// Find details in "./routes/account.js"
+app.use('/', account)	// Process requests related to user account
+						// Find details in "./routes/account.js"
 
 /* Operations that require login should be processed after this line */
 
