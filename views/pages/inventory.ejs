@@ -28,8 +28,21 @@
             </ul><br>
 
                  <h2>Inventory</h2>
-
-                 <table>
+                 <table style="margin-left: auto; margin-right: auto;">
+                   <tr>
+                     <th></th>
+                     <th></th>
+                     <th></th>
+                     <th valign="bottom"><img src="images/seed.png" alt="profilePic" style="width:80px;height:160px;padding-left:10px"></th>
+                     <th valign="bottom"><img src="images/cornn.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                     <th valign="bottom"><img src="images/tomatodude.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                     <th valign="bottom"><img src="images/evilpumpkin.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                     <th valign="bottom"><img src="images/potato.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                     <th valign="bottom"><img src="images/cabby.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                     <th valign="bottom"><img src="images/carrosaur.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                     <th valign="bottom"><img src="images/watermelony.jpg" alt="profilePic" style="width:80px;height:60px;padding-left:10px"></th>
+                   </tr>
+                 <!-- <table> -->
                    <tr>
                      <th>Username</th>
                      <th>Coins</th>
@@ -64,17 +77,20 @@
                      <td></td>
                      <td></td>
                      <td></td>
-                     <td><input class="numberField" id="stock1" type="number" min="0" value="0" ></input></td>
-                     <td><input class="numberField" id="stock2" type="number" min="0" value="0" ></input></td>
-                     <td><input class="numberField" id="stock3" type="number" min="0" value="0" ></input></td>
-                     <td><input class="numberField" id="stock4" type="number" min="0" value="0"  ></input></td>
-                     <td><input class="numberField" id="stock5" type="number" min="0" value="0"  ></input></td>
-                     <td><input class="numberField" id="stock6" type="number" min="0" value="0"  ></input></td>
-                     <td><input class="numberField" id="stock7" type="number" min="0" value="0"  ></input></td>
-                     <td><input class="numberField" id="stock8" type="number" min="0" value="0" ></input></td>
+                     <form action = "/sell" method = "post">
+                     <td><input name = "seeds" class="numberField" id="stock1" type="number" min="0" value="0" ></input></td>
+                     <td><input name = "tomato" class="numberField" id="stock2" type="number" min="0" value="0" ></input></td>
+                     <td><input name = "potato" class="numberField" id="stock3" type="number" min="0" value="0" ></input></td>
+                     <td><input name = "pumpkin" class="numberField" id="stock4" type="number" min="0" value="0"  ></input></td>
+                     <td><input name = "corn" class="numberField" id="stock5" type="number" min="0" value="0"  ></input></td>
+                     <td><input name = "cabbage" class="numberField" id="stock6" type="number" min="0" value="0"  ></input></td>
+                     <td><input name = "carrot" class="numberField" id="stock7" type="number" min="0" value="0"  ></input></td>
+                     <td><input name = "watermelon" class="numberField" id="stock8" type="number" min="0" value="0" ></input></td>
                    </tr>
                    </table>
-                   <button style="float:right; width:60px; height:25px; margin-right:40px;" onclick="sellItem()">Sell</button>
+                   <p align="center">(Each Item Sells For 3 Coins)</p>
+                   <button style="float:right; width:60px; height:25px; margin-right:40px;" type = "submit" ide = "sell_button" value = "Submit" onclick="sellItem(); this.onclick=null;">Sell</button>
+                    </form>
              </header>
 
              <!-- <script>
@@ -83,7 +99,7 @@
                document.getElementById("date").innerHTML = curr_date;
              }
              function sellItem(){
-               
+
              }
              </script>
              <script>

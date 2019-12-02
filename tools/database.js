@@ -12,8 +12,8 @@ var pool = new Pool({
 // var pool = new Pool ({
 // 	user: 'postgres',
 // 	host: 'localhost',
-// 	database: 'farmagatchi',
-// 	password: 'root',
+// 	database: 'temp_database_1',
+// 	password: 'darth9410',
 // 	port: 5432
 // })
 
