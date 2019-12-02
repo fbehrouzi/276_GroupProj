@@ -8,14 +8,14 @@
 
   </head>
 
-        <body style="margin: 0;">
+        <body style="margin: 0;" onload="loadImage()">
 
           <header id="site-header">
           </header>
 
         <header id="mainheader">
-                <h1 onload="loadImage()" class="loginfail"><%= title %></h1>
-                <div style="width: 100%"><img id ="msgimg" style="width: 50%; margin-left: auto; margin-right: auto; "></div>
+                <h1 class="loginfail"><%= title %></h1>
+                <div style="width: 100%"><img id ="msgimg" onload="loadImage()" src="" style="width: 50%; margin-left: auto; margin-right: auto; "></div>
                 <h2 id="msg" ><%= msg %></h2>
 
           <div id="logindiv">
