@@ -15,13 +15,11 @@ var io = require('socket.io')(http);
 // Import user defined modules
 var pool = require('./tools/database').pool		// defined in "./tools/database.js"
 var account = require('./routes/account')		// defined in "./routes/account.js"
-
-var main = require('./routes/main')			// defined in "./routes/main.js"
-var quiz = require('./routes/quiz')			// defined in "./routes/quiz.js"
-var store = require('./routes/store')		// defined in "./routes/store.js"
-
-var farm = require('./routes/farm')			// defined in "./routes/farm.js"
-var inventory = require ('./routes/inventory')
+var main = require('./routes/main')				// defined in "./routes/main.js"
+var quiz = require('./routes/quiz')				// defined in "./routes/quiz.js"
+var store = require('./routes/store')			// defined in "./routes/store.js"
+var farm = require('./routes/farm')				// defined in "./routes/farm.js"
+var inventory = require('./routes/inventory')	// defined in "./routes/inventory.js"
 
 app.get('/farmagatchi', (req, res) => res.render('pages/farmagatchi.ejs'))
 app.get('/settings', (req, res) => res.render('pages/settings.ejs'))
@@ -55,20 +53,12 @@ app.use('/', quiz)		// Process requests related to quiz
 app.use('/', store)		// Process requests related to store
 						// Find details in "./routes/store.js"
 
+app.use('/', farm)		// Process requests related to the farming operations
+						// Find details in "./routes/farm.js"
+
 app.use('/', inventory) // Process requests related to invetory selling
 						// Find details in "./routes/inventory.js"
 
-// app.get('/inventory', (req, res) => {
-// 	var username = req.cookies['username']
-// 	var getuseraccount = `SELECT * FROM user_account WHERE username=$1`
-// 	pool.query(getuseraccount, [username], (error, result) => {
-// 		if (error)
-// 			res.end(error)
-// 		res.render('pages/inventory', {
-// 			'rows': result.rows
-// 		})
-// 	});
-// });
 
 var users = 0;
 app.get('/chat', (req, res) => res.render('pages/chatroom.ejs'))
