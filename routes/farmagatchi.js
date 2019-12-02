@@ -5,7 +5,6 @@
 const express = require('express')
 var app = express()
 var pool = require('../tools/database').pool		// defined in "../tools/database.js"
-var weather_api = require('../tools/weather_api')	// defined in "../tools/weather_api.js"
 
 var max_xp = 100
 var max_hunger = 100

@@ -21,12 +21,7 @@ var store = require('./routes/store')				// defined in "./routes/store.js"
 var farm = require('./routes/farm')					// defined in "./routes/farm.js"
 var inventory = require('./routes/inventory')		// defined in "./routes/inventory.js"
 var farmagatchi = require('./routes/farmagatchi')	// defined in "./routes/farmagatchi.js"
-
-// app.get('/farmagatchi', (req, res) => res.render('pages/farmagatchi.ejs'))
-app.get('/settings', (req, res) => res.render('pages/settings.ejs'))
-app.get('/changeuser', (req, res) => res.render('pages/changeuser.ejs'))
-app.get('/changepass', (req, res) => res.render('pages/changepass.ejs'))
-app.get('/deleteacc', (req, res) => res.render('pages/deleteacc.ejs'))
+var setting = require('./routes/setting')			// defined in "./routes/setting.js"
 
 
 app.use(cookieParser())
@@ -62,6 +57,9 @@ app.use('/', inventory) 	// Process requests related to invetory selling
 
 app.use('/', farmagatchi)	// Process requests related to farmagatchi
 							// Find details in "./routes/farmagatchi.js"
+
+app.use('/', setting)		// Process requests related to setting
+							// Find details in "./routes/setting.js"
 
 var users = 0;
 app.get('/chat', (req, res) => res.render('pages/chatroom.ejs'))
