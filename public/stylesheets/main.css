@@ -439,3 +439,8 @@ th, td {
 .numberField{
   width: 60px;
 }
+
+.inv-input{
+  width: 60px;
+  text-align: center;
+}

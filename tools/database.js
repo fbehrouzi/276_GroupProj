@@ -5,15 +5,14 @@
 // Database
 const { Pool } = require('pg')
 var pool = new Pool({
-	//connectionString:'postgres://myuser:password@localhost:5432/userdb'
 	connectionString: process.env.DATABASE_URL
 })
 
 // var pool = new Pool ({
 // 	user: 'postgres',
 // 	host: 'localhost',
-// 	database: 'farmagatchi',
-// 	password: 'root',
+// 	database: 'temp_database_1',
+// 	password: 'darth9410',
 // 	port: 5432
 // })
 

@@ -37,6 +37,7 @@
       width: 75%;
       background-color: #ddd;
       margin: 0 auto;
+      border-radius: 10px;
     }
 
     .skills {
@@ -44,15 +45,19 @@
       padding-top: 10px;
       padding-bottom: 10px;
       color: white;
+      border-radius: 10px;
     }
 
-    .experience {width: 75%; background-color: #3FFF33;}
-    .hunger {width: 60%; background-color: #335EFF;}
-    .health {width: 50%; background-color: #FF0000;}
+    .experience {width: <%= xp %>; background-color: #3FFF33;}
+    .hunger {width: <%= hunger %>; background-color: #335EFF;}
+    /*.health {width: 50%; background-color: #FF0000;}*/
   </style>
 
-  <header id="site-header">
-   <ul>
+  <!-- <header id="site-header"> -->
+<!-- </header> -->
+
+<header id="mainheader" style="padding-top: 0px">
+  <ul>
     <li><a class="active" href="/main">Home</a></li>
     <li><a href="/inventory">Inventory</a></li>
     <li><a href="/chat">Chatroom</a></li>
@@ -62,35 +67,31 @@
     <li><a href="/settings">Settings</a></li>
     <li><a href="/logout">Logout</a></li>
   </ul>
-</header>
-
-<header id="mainheader">
-
   <h3 id = "date"></h3>
   <h1 id="h1green">★Your Farmagatchi!★</h1>
 
   <h1>Experience</h1>
   <div class="container">
-    <div class="skills experience">75%</div>
+    <div class="skills experience"><%= xp %></div>
   </div>
 
   <h1>Hunger</h1>
   <div class="container">
-    <div class="skills hunger">60%</div>
+    <div class="skills hunger"><%= hunger %></div>
   </div>
 
-  <h1>Health</h1>
+  <!-- <h1>Health</h1>
   <div class="container">
     <div class="skills health">50%</div>
-  </div>
+  </div> -->
   <br></br>
 
-  <img src="images/air.jpg" alt="tamagotchi" class="tamImg" style="width:300px;height:300px;">
+  <img src="<%= char_img %>" alt="tamagotchi" class="tamImg" style="width:300px;height:300px;">
 
   <br><br>
   <div id="logindiv">
-    <button name="Level Up" type="button" class="levelButton">Level Up &#11014;</button>
-    <button name="feed" type="button" class="feedButton">Feed &#127805;</button>
+    <!-- <button name="Level Up" type="button" class="levelButton">Level Up &#11014;</button> -->
+    <button name="feed" type="button" class="feedButton" onclick="window.location.href='/feed'">Feed &#127805;</button>
   </div>
 </header>
 
