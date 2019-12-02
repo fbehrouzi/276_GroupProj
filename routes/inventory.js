@@ -74,56 +74,56 @@ app.post('/sell', (req, res) => {
 		// 	})
 		// }
     // Tomato	Potato	Pumpkin	Corn	Cabbage	Carrot	Watermelon
-    if (result.rows[0].seed < sellinglist[0]) {
+    if (result.rows[0].seed < sellinglist.seeds) {
 			res.status(200).render('pages/message', {
 				'title': 'Sorry~',
 				'msg': "You don't have enough seeds"
 			})
       return
 		}
-    if (result.rows[0].tomato < sellinglist[1]) {
+    if (result.rows[0].tomato < sellinglist.tomato) {
 			res.status(200).render('pages/message', {
 				'title': 'Sorry~',
 				'msg': "You don't have enough tomatoes"
 			})
       return
 		}
-    if (result.rows[0].potato < sellinglist[2]) {
+    if (result.rows[0].potato < sellinglist.potato) {
       res.status(200).render('pages/message', {
         'title': 'Sorry~',
         'msg': "You don't have enough potatoes"
       })
       return
     }
-    if (result.rows[0].pumpkin < sellinglist[3]) {
+    if (result.rows[0].pumpkin < sellinglist.pumpkin) {
       res.status(200).render('pages/message', {
         'title': 'Sorry~',
         'msg': "You don't have enough pumpkins"
       })
       return
     }
-    if (result.rows[0].corn < sellinglist[4]) {
+    if (result.rows[0].corn < sellinglist.corn) {
 			res.status(200).render('pages/message', {
 				'title': 'Sorry~',
 				'msg': "You don't have enough corn"
 			})
       return
 		}
-    if (result.rows[0].cabbage < sellinglist[5]) {
+    if (result.rows[0].cabbage < sellinglist.cabbage) {
 			res.status(200).render('pages/message', {
 				'title': 'Sorry~',
 				'msg': "You don't have enough cabbages"
 			})
       return
 		}
-    if (result.rows[0].carrot < sellinglist[6]) {
+    if (result.rows[0].carrot < sellinglist.carrot) {
 			res.status(200).render('pages/message', {
 				'title': 'Sorry~',
 				'msg': "You don't have enough carrots"
 			})
       return
 		}
-    if (result.rows[0].watermelon < sellinglist[7]) {
+    if (result.rows[0].watermelon < sellinglist.watermelon) {
 			res.status(200).render('pages/message', {
 				'title': 'Sorry~',
 				'msg': "You don't have enough watermelons"
