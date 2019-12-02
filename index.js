@@ -13,15 +13,16 @@ var http = require ('http').createServer(app);
 var io = require('socket.io')(http);
 
 // Import user defined modules
-var pool = require('./tools/database').pool		// defined in "./tools/database.js"
-var account = require('./routes/account')		// defined in "./routes/account.js"
-var main = require('./routes/main')				// defined in "./routes/main.js"
-var quiz = require('./routes/quiz')				// defined in "./routes/quiz.js"
-var store = require('./routes/store')			// defined in "./routes/store.js"
-var farm = require('./routes/farm')				// defined in "./routes/farm.js"
-var inventory = require('./routes/inventory')	// defined in "./routes/inventory.js"
+var pool = require('./tools/database').pool			// defined in "./tools/database.js"
+var account = require('./routes/account')			// defined in "./routes/account.js"
+var main = require('./routes/main')					// defined in "./routes/main.js"
+var quiz = require('./routes/quiz')					// defined in "./routes/quiz.js"
+var store = require('./routes/store')				// defined in "./routes/store.js"
+var farm = require('./routes/farm')					// defined in "./routes/farm.js"
+var inventory = require('./routes/inventory')		// defined in "./routes/inventory.js"
+var farmagatchi = require('./routes/farmagatchi')	// defined in "./routes/farmagatchi.js"
 
-app.get('/farmagatchi', (req, res) => res.render('pages/farmagatchi.ejs'))
+// app.get('/farmagatchi', (req, res) => res.render('pages/farmagatchi.ejs'))
 app.get('/settings', (req, res) => res.render('pages/settings.ejs'))
 app.get('/changeuser', (req, res) => res.render('pages/changeuser.ejs'))
 app.get('/changepass', (req, res) => res.render('pages/changepass.ejs'))
@@ -39,26 +40,28 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => { res.redirect('/main') })	// Home page
 
 
-app.use('/', account)	// Process requests related to user account
-						// Find details in "./routes/account.js"
+// app.use('/', account)	// Process requests related to user account
+// 						// Find details in "./routes/account.js"
 
 /* Operations that require login should be processed after this line */
 
-app.use('/', main)		// Process requests related to main page
-						// Find details in "./routes/main.js"
+app.use('/', main)			// Process requests related to main page
+							// Find details in "./routes/main.js"
 
-app.use('/', quiz)		// Process requests related to quiz
-						// Find details in "./routes/quiz.js"
+app.use('/', quiz)			// Process requests related to quiz
+							// Find details in "./routes/quiz.js"
 
-app.use('/', store)		// Process requests related to store
-						// Find details in "./routes/store.js"
+app.use('/', store)			// Process requests related to store
+							// Find details in "./routes/store.js"
 
-app.use('/', farm)		// Process requests related to the farming operations
-						// Find details in "./routes/farm.js"
+app.use('/', farm)			// Process requests related to the farming operations
+							// Find details in "./routes/farm.js"
 
-app.use('/', inventory) // Process requests related to invetory selling
-						// Find details in "./routes/inventory.js"
+app.use('/', inventory) 	// Process requests related to invetory selling
+							// Find details in "./routes/inventory.js"
 
+app.use('/', farmagatchi)	// Process requests related to farmagatchi
+							// Find details in "./routes/farmagatchi.js"
 
 var users = 0;
 app.get('/chat', (req, res) => res.render('pages/chatroom.ejs'))

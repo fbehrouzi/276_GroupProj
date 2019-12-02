@@ -47,6 +47,8 @@ app.get('/main', (req, res) => {
 			renderObj = {
 				'username': req.cookies['username'], 
 				'coin': user.coin, 
+				'lv': user.lv, 
+				'xp': user.xp, 
 				'character': user.character, 
 				'city': "", 
 				'weather': "", 
