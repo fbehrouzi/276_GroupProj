@@ -79,6 +79,8 @@ io.on('connection', function(socket) {
 		}
 	});
 	socket.on('chat message', function(msg) {
+		if (msg.length <= 0)
+			return
 		let cookieString = socket.request.headers.cookie
 		let lst = cookieString.split(';')
 		let username = ''
