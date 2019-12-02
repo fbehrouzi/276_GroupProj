@@ -84,6 +84,7 @@ app.get('/main', (req, res) => {
 					renderObj.disable.push('disabled')
 					db_stage.push(stage)
 					if (stage >= 4) {
+						empty_count++
 						db_time.push(parseInt(user["time" + i]))
 						renderObj.time.push("00:00")
 						renderObj.harvest.push('')
