@@ -10,9 +10,9 @@ function loadImage(){
   }
   let msg = document.getElementById('msg').innerHTML;
   console.log(msgSet[msg]); 
-  if (msgSet[msg]){
+  if (msgSet[msg] == 0 || msgSet[msg] ){
     setSrc(msgSet[msg]);
-    Setdisplay("inline")
+    Setdisplay("block")
   }else{
     Setdisplay("none");
   }
@@ -21,7 +21,7 @@ function setSrc(num){
     let imageSrc = {
     0: "images/tomatodude.png",
     1: "images/potato.png",
-    2: "images/evilpumplin.png",
+    2: "images/evilpumpkin.png",
     3: "images/cornn.png",
     4: "images/cabby.png",
     5: "images/carrosaur.png",
