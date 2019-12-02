@@ -1,0 +1,81 @@
+<html lang="en" dir="ltr">
+  <head>
+    <!-- <link rel="stylesheet" href="stylesheets/quiz.css"> -->
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <meta charset="utf-8">
+
+  </head>
+
+  <body style="margin: 0;">
+
+<!-- <header id="site-header"> -->
+<!-- </header> -->
+  <header id="mainheader">
+
+
+    <ul>
+     <li><a class="active" href="/main">Home</a></li>
+     <li><a href="/inventory">Inventory</a></li>
+     <li><a href="/chat">Chatroom</a></li>
+     <li><a href="/quiz">Quiz</a></li>
+     <li><a href="/store">Store</a></li>
+     <li><a href="/farmagatchi">Farmagatchi</a></li>
+     <li><a href="/settings">Settings</a></li>
+     <li><a href="/logout">Logout</a></li>
+     </ul><br>
+                <h3 id = "date"></h3>
+                <h1 id="h1green">★History Quiz!★</h1>
+
+          <div id="Questions">
+            <form action="/checkquiz" method="post">
+              <h2>What was the first city to reach a population of one million?</h2>
+              <div class="imageCenter">
+                <input type="radio" name="q1" value="0">Vancouver</input>
+                <input type="radio" name="q1" value="0">London</input>
+                <input type="radio" name="q1" value="1">Rome</input>
+                <input type="radio" name="q1" value="0">Beijing</input>
+                              </div>
+
+
+              <h2>What did ancient Egyptians use as pillows?</h2>
+              <div class="imageCenter">
+                <input type="radio" name="q2" value="1">Stones</input>
+                <input type="radio" name="q2" value="0">Animal Pelts</input>
+                <input type="radio" name="q2" value="0">Bundles of Wheat</input>
+                <input type="radio" name="q2" value="0">Bags of Water</input>
+                              </div>
+
+
+              <h2>What year did the first man walk on the Moon?</h2>
+              <div class="imageCenter">
+                <input type="radio" name="q3" value="0">1966</input>
+                <input type="radio" name="q3" value="0">1972</input>
+                <input type="radio" name="q3" value="1">1969</input>
+                <input type="radio" name="q3" value="0">1982</input>
+                              </div>
+
+
+              <h2>What U.S. President gave the White House its current name?</h2>
+              <div class="imageCenter">
+                <input type="radio" name="q4" value="0">George Washington</input>
+                <input type="radio" name="q4" value="1">Theodore Roosevelt</input>
+                <input type="radio" name="q4" value="0">Thomas Jefferson</input>
+                <input type="radio" name="q4" value="0">Abraham Lincoln</input>
+                              </div>
+                <div class="imageCenter">
+                  <br>
+            <button type="submit" id="submit" class="regButton" value="Submit">Submit</button>
+                            </div>
+            </form> <br>
+
+          </div>
+          <h1 id="score"></h1>
+          <h2 id="res"></h2>
+          <h1 id="coinResult"></h1>
+          <h1 id="message"></h1>
+            </header>
+          <footer id="site-footer">
+          </footer>
+
+        </body>
+      </html>
