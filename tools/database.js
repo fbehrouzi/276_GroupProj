@@ -8,13 +8,13 @@ const { Pool } = require('pg')
 // 	connectionString: process.env.DATABASE_URL
 // })
 
-var pool = new Pool ({
-	user: 'postgres',
-	host: 'localhost',
-	database: 'farmagatchi',
-	password: 'root',
-	port: 5432
-})
+// var pool = new Pool ({
+// 	user: 'postgres',
+// 	host: 'localhost',
+// 	database: 'farmagatchi',
+// 	password: 'root',
+// 	port: 5432
+// })
 
 // Export variable 'pool'
 module.exports = {
