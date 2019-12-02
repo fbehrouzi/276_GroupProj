@@ -3,8 +3,8 @@ function loadImage(){
     "You got a tomato" :0,
     "You got a potato" :1,
     "You got a pumpkin" :2, 
-    "You got a You got a You got a corn" :3, 
-    "You got a You got a cabbage" :4, 
+    "You got a corn" :3, 
+    "You got a cabbage" :4, 
     "You got a carrot" :5, 
     "You got a watermelon" :6
   }
@@ -24,8 +24,8 @@ function setSrc(num){
     2: "images/evilpumplin.png",
     3: "images/cornn.png",
     4: "images/cabby.png",
-    5: "carrosaur.png",
-    6: "watermelony.png"
+    5: "images/carrosaur.png",
+    6: "images/watermelony.png"
   }
   let link = document.getElementById('msgimg');
   if (link.src != imageSrc[num]) {
