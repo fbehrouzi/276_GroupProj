@@ -10,7 +10,7 @@ function loadImage(){
   }
   let msg = document.getElementById('msg').innerHTML;
   console.log(msgSet[msg]); 
-  if (msgSet[msg] == 0 || msgSet[msg] ){
+  if (msgSet[msg] >= 0 && msgSet[msg] <=6 ){
     setSrc(msgSet[msg]);
     Setdisplay("block")
   }else{
