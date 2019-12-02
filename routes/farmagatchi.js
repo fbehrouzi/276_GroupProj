@@ -30,7 +30,7 @@ app.get('/farmagatchi', (req, res) => {
 		let lv = parseInt(user.lv)
 		let char_img = ''
 		if (lv <= 0) {
-			char_img = "./images/" + user.character + ".png"
+			char_img = "./images/" + user.character + ".jpg"
 		} else if (lv == 1) {
 			char_img = "./images/" + user.character + "evolve1.png"
 		} else {
